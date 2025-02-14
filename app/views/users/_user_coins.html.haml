@@ -1,0 +1,8 @@
+- coins.each do |c|
+  - coin_info = coins_info["#{c.crypto_symbol}"]
+  .coin-block
+    .coin-info-block
+      .coin-icon= get_image_url_by_extracted_data(coin_info)
+      .coin-name
+        = get_coin_name_by_extracted_data(coin_info)
+        .text-muted.text-small= c.crypto_symbol

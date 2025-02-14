@@ -1,0 +1,10 @@
+.content
+  .row
+    .col-md-3
+    .col-md-6
+      .edit-user-title
+        = link_to user_path(@user) do
+          %span.text-muted.text-xxl= fa_icon "arrow-left"
+        %span.text-xxl.text-bold Редактировать профиль
+      = render 'form'
+    .col-md-3

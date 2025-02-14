@@ -1,0 +1,12 @@
+{
+  "name": "RIYATI",
+  "short_name": "R",
+  "icons": [{
+        "src": "images/dashboard.png",
+        "sizes": "128x128",
+        "type": "image/png"
+  }],
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a"
+}

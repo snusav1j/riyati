@@ -1,0 +1,3 @@
+<% if @coins.present? %>
+  $('.user-coins-body .coins-block').html("<%= j render partial: 'user_coins', locals: { coins_info: @coins_info, coins: @coins, user: @user } %>"); 
+<% end %>
