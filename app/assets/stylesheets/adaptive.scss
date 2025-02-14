@@ -3,3 +3,21 @@
     display: none !important;
   }
 }
+server{
+  listen 443 ssl http2;
+
+  server_name riyati.ru;
+    location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+  }
+  ssl_certificate /etc/letsencrypt/live/riyati.ru/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/riyati.ru/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/riyati.ru/chain.pem;
+  include snippets/ssl.conf;
+  include snippets/letsencrypt.conf;
+}
