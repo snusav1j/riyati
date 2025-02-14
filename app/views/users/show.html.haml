@@ -41,7 +41,7 @@
           - if current_user.director? || current_user == @user
             = link_to edit_user_path(@user) do
               .user-edit-btn
-                = "Редактировать"
+                %span.hide-on-mobile= "Редактировать"
                 = fa_icon :edit
         .user-registered-info
           .text-muted= @user.registered_info
