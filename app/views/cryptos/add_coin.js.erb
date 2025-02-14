@@ -1,0 +1,5 @@
+<% if @added %>
+  $(".add-coin[data-symbol='<%= @symbol =%>']").children('.btn').show()
+  $(".add-coin[data-symbol='<%= @symbol =%>']").children('.loader').hide()
+  $(".add-coin[data-symbol='<%= @symbol =%>']").remove()
+<% end %>

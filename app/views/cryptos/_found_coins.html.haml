@@ -1,0 +1,17 @@
+- if coins.present?
+  - coins.each do |c|
+    - symbol = c[0]
+    .coin-block
+      .coin-info-block
+        .coin-icon= coin_icon_by_data(c)
+        .coin-name
+          = coin_name_by_data(c)
+          .text-muted.text-small= symbol
+      .coin-block-controls 
+        %button.show-coin-info.form-button.small-button{ data: { symbol: c[0] } }
+          .btn= fa_icon :eye
+          .loader{ style: "display: none;" }= fa_icon "circle-o-notch spin"
+        - if !User.get_user_coins(current_user.id).where(crypto_symbol: c[0]).present?
+          %button.add-coin.form-button.small-button{ data: { symbol: c[0] } }
+            .btn= fa_icon :plus
+            .loader{ style: "display: none;" }= fa_icon "circle-o-notch spin"

@@ -1,0 +1,25 @@
+- if current_user.present?
+  .panel-block
+    = link_to root_path do
+      %span.panel-logo R
+    .vertical-separator
+
+    %nav.nav-panel
+      = link_to cryptos_path do
+        Крипта
+      - if current_user.director?
+        = link_to users_path do
+          Пользователи
+
+  - if current_user.present?
+    .user-block
+      = link_to user_path(current_user) do
+        .user-avatar
+          = current_user.avatar
+        %div
+          = current_user.short_name
+          .text-muted.text-small= current_user.user_login_id
+
+      .sign-out-btn
+        = link_to logout_sessions_path do
+          = fa_icon "sign-out"

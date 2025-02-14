@@ -1,0 +1,20 @@
+.main-prices
+  - if usd_to_rub['AggregatedData'].present?
+    .dop-coin-info-item
+      .coin-icon= img_url_by_snapshot(usd_to_rub)
+      = price_by_snapshot(usd_to_rub, 'USD', 'RUB')
+      
+  - if btc_to_usd['AggregatedData'].present?
+    .dop-coin-info-item
+      .coin-icon= img_url_by_snapshot(btc_to_usd)
+      = price_by_snapshot(btc_to_usd, 'BTC', 'USD')
+      
+  - if sol_to_usd['AggregatedData'].present?
+    .dop-coin-info-item
+      .coin-icon= img_url_by_snapshot(sol_to_usd)
+      = price_by_snapshot(sol_to_usd, 'SOL', 'USD')
+
+  - if xrp_to_usd['AggregatedData'].present?
+    .dop-coin-info-item
+      .coin-icon= img_url_by_snapshot(xrp_to_usd)
+      = price_by_snapshot(xrp_to_usd, 'XRP', 'USD')
