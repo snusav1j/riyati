@@ -1,13 +1,12 @@
 #dop-control-panel
-  .dop-info-crypto
-    -# .main-prices
-    -#   .loader= fa_icon "circle-o-notch spin"
-    -# .control-btns
-    -#   #find-crypto-modal-btn.form-button.small-button
-    -#     = fa_icon :search
-    -#   #refresh-main-prices-btn.form-button.small-button
-    -#     = fa_icon :refresh
-    
+  -# .dop-info-crypto
+  -#   .main-prices
+  -#     .loader= fa_icon "circle-o-notch spin"
+  -#   .control-btns
+  -#     #find-crypto-modal-btn.form-button.small-button
+  -#       = fa_icon :search
+  -#     #refresh-main-prices-btn.form-button.small-button
+  -#       = fa_icon :refresh
 .row
   -# .col-md-3.user-controls-panel
   .col-md-3
@@ -42,7 +41,7 @@
           - if current_user.director? || current_user == @user
             = link_to edit_user_path(@user) do
               .user-edit-btn
-                %span.hide-on-mobile= "Редактировать"
+                = "Редактировать"
                 = fa_icon :edit
         .user-registered-info
           .text-muted= @user.registered_info

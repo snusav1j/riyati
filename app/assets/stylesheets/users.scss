@@ -89,7 +89,7 @@
   background: var(--main-color);
 }
 .profile-body{
-  padding: 15px 25px;
+  padding: 15px 0;
   position: relative;
   height: 100px;
   display: block;
@@ -148,7 +148,7 @@
 .edit-user-title,
 .new-user-title,
 .back-to-users{
-  padding: 15px 0;
+  padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: 1px solid var(--border-color);
   display: flex;
