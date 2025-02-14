@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   
   resources :cryptos do
     collection do
-      get :new_modal
-      get :edit_modal
-      post :search_coins
-      get :crypto_modal
-      get :get_main_prices
-      get :coin_info_modal
-      get :add_coin
+      # get :new_modal
+      # get :edit_modal
+      # post :search_coins
+      # get :crypto_modal
+      # get :get_main_prices
+      # get :coin_info_modal
+      # get :add_coin
     end
   end
 
