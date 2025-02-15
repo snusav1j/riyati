@@ -8,12 +8,13 @@
           = fa_icon :times
 
       .sidebar-header
-        .user-avatar
-          = current_user.avatar
-        .user-info
-          %span.user-name
-            %strong= current_user.fullname
-          %span.user-role= t("role_name_#{current_user.role}")
+        = link_to user_path(current_user) do
+          .user-avatar
+            = current_user.avatar
+          .user-info
+            %span.user-name
+              %strong= current_user.fullname
+            %span.user-role= t("role_name_#{current_user.role}")
 
       .sidebar-menu
         %ul
@@ -44,7 +45,7 @@
       %a{:href => "#"}
         %i.fa.fa-envelope
         %span.badge.badge-pill.badge-success.notification
-      %a{:href => "#"}
+      = link_to edit_user_path(current_user) do 
         %i.fa.fa-cog
       = link_to logout_sessions_path do
         = fa_icon "sign-out"

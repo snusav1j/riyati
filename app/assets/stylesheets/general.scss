@@ -65,6 +65,7 @@ i {
 @media screen and (max-width: 991px){
   .row{
     flex-direction: column;
+    gap: 0;
   }
   .col-md-1{
     width: 100% !important;

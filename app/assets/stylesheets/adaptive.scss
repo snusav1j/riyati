@@ -3,6 +3,11 @@
     display: none !important;
   }
 }
+@media screen and (max-width: 1280px){
+  .hide-on-laptop{
+    display: none !important;
+  }
+}
 #show-sidebar{
   display: none;
 }
