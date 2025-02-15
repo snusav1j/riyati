@@ -1,6 +1,5 @@
 class CryptosController < ApplicationController
   include CryptosHelper
-  before_action :ensure_current_user
   # before_action :crypto_data
 
   def index
