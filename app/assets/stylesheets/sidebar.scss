@@ -121,15 +121,15 @@ nav#sidebar {
 
 /*----------------show sidebar button----------------*/
 #show-sidebar {
-  position: fixed;
-  left: 0;
-  top: 70px;
+  // position: fixed;
+  // left: 0;
+  // top: 70px;
   border-radius: 0 4px 4px 0px;
   width: fit-content;
   transition-delay: 0.3s;
-  background: var(--tertiary-color);
-  padding: 5px 10px;
-  font-size: 18px;
+  // background: var(--tertiary-color);
+  // padding: 5px 10px;
+  font-size: 28px;
 }
 
 .page-wrapper.toggled #show-sidebar {

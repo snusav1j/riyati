@@ -1,9 +1,10 @@
 - if current_user.present?
   .panel-block
-    = link_to root_path do
-      %span.panel-logo R
-    .vertical-separator
-
+    = link_to root_path, class: 'hide-on-mobile' do
+      %span.panel-logo.hide-on-mobile R
+    .vertical-separator.hide-on-mobile
+    %a#show-sidebar.btn.btn-sm.btn-dark{:href => "#"}
+      = fa_icon :bars
     %nav.nav-panel
       = link_to cryptos_path do
         Крипта

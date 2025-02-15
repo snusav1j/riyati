@@ -1,6 +1,4 @@
 .page-wrapper
-  %a#show-sidebar.btn.btn-sm.btn-dark{:href => "#"}
-    = fa_icon :bars
   %nav#sidebar.sidebar-wrapper
     .sidebar-content
       .sidebar-brand
@@ -42,12 +40,11 @@
     .sidebar-footer
       %a{:href => "#"}
         %i.fa.fa-bell
-        %span.badge.badge-pill.badge-warning.notification 3
+        %span.badge.badge-pill.badge-warning.notification
       %a{:href => "#"}
         %i.fa.fa-envelope
-        %span.badge.badge-pill.badge-success.notification 7
+        %span.badge.badge-pill.badge-success.notification
       %a{:href => "#"}
         %i.fa.fa-cog
-        %span.badge-sonar
       = link_to logout_sessions_path do
         = fa_icon "sign-out"
