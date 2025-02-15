@@ -41,13 +41,25 @@
 .user-form-block select{
   margin-bottom: 10px;
 }
-.save-user:hover{
+.default-btn:hover{
+  
+}
+.default-btn{
+
+}
+.primary-btn:hover{
   background: var(--brand-hover-color);
 }
-.save-user{
+.primary-btn{
+  background: var(--brand-color);
+}
+.save-btn:hover{
+  // background: var(--brand-hover-color);
+}
+.save-btn{
   transition: .3s ease;
   cursor: pointer;
-  background: var(--brand-color);
+  // background: var(--brand-color);
 }
 .user-controls-panel{
   background: var(--tertiary-color);

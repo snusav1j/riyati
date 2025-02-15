@@ -1,3 +1,0 @@
-class ParfumIngridient < ApplicationRecord
-  
-end

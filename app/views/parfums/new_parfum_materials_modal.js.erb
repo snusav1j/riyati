@@ -1,0 +1,4 @@
+$('#parfum-material-modal-outer').html("<%= j render partial: 'new_parfum_materials_modal', locals: { url: parfum_materials_path, parfum_material: @parfum_material, title: 'Добавить парфюмерное сырье' } %>");
+$('input#parfum_material_material_name').val('Эфирное масло ')
+$('input#parfum_material_material_name').focus()
+$('#parfum-material-modal').modal('show');

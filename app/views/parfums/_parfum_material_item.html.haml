@@ -1,0 +1,10 @@
+.parfum-material-item.block-item{ data: { parfum_material_id: pm.id } }
+  .parfum-material-info
+    %div= pm.material_name
+    %div.text-muted= "#{pm.material_ml} мл." if pm.material_ml.present?
+  
+  .block-controls
+    .parfum-material-expense
+      = "#{pm.expense} ₽" if pm.expense.present?
+    .delete-parfum-material-btn.delete-btn{ data: { parfum_material_id: pm.id } }
+      = fa_icon :trash

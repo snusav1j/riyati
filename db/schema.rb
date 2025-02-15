@@ -17,8 +17,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_14_200050) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "parfum_ingridients", force: :cascade do |t|
-    t.string "ingridient_name"
+  create_table "parfum_materials", force: :cascade do |t|
+    t.string "material_name"
+    t.float "material_ml"
+    t.float "expense"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parfum_recipes", force: :cascade do |t|
+    t.integer "parfum_id"
+    t.integer "parfum_material_id"
     t.integer "drops_count"
     t.float "ml"
     t.datetime "created_at", null: false

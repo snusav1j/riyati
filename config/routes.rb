@@ -32,10 +32,31 @@ Rails.application.routes.draw do
       get :get_user_coins
     end
   end
+  
+  resources :parfum_recipes do
+    collection do
+
+    end
+  end
+
+  resources :parfum_materials do
+    collection do
+      get :delete_parfum_materials
+    end
+  end
+
   resources :parfums do
     collection do
       get :new_modal
       get :edit_modal
+      get :parfum_materials
+      get :parfum_recipes
+      get :parfum_drop_avg_mls
+      get :new_parfum_modal
+      get :new_parfum_materials_modal
+      get :edit_parfum_materials_modal
+      post :save_parfum_material
+      post :update_parfum_material
     end
   end
 end

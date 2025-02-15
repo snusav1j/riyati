@@ -8,3 +8,4 @@
 //= import 'bootstrap'
 //= require bootstrap-sprockets
 //= require toastr
+//= require parfums

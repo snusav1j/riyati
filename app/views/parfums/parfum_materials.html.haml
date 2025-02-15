@@ -1,0 +1,12 @@
+#dop-control-panel
+  Парфюмерное сырье
+  #new-parfum-material-modal.form-button.small-button
+    = fa_icon :plus
+.content
+  .row 
+    .col-md-3
+    .col-md-6
+      .parfum-material-block.block
+        - @parfum_materials.each do |pm|
+          = render partial: "parfum_material_item", locals: { pm: pm }
+    .col-md-3

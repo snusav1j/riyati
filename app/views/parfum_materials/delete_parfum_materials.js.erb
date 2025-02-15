@@ -1,0 +1,5 @@
+<% if @destroyed %>
+  toastr.error('Сырье удалено.')
+  $(".parfum-material-item.block-item[data-parfum-material-id='<%= @parfum_material.id %>']").remove();
+
+<% end %>

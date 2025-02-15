@@ -1,0 +1,5 @@
+<% if @updated %>
+  $(".parfum-material-item.block-item[data-parfum-material-id='<%= @parfum_material.id %>']").replaceWith("<%= j render partial: '/parfums/parfum_material_item', locals: { pm: @parfum_material } %>");
+  toastr.success('Сырье обновлено.')
+  $('#parfum-material-modal').modal('hide');
+<% end %>

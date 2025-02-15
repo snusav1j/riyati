@@ -8,8 +8,21 @@
     %nav.nav-panel
       = link_to cryptos_path do
         Крипта
-      = link_to parfums_path do
-        Парфюм
+      %ul.nav-list.hidden.visible-md
+        %li.dropdown
+          %a{:href => "#"}
+            Парфюмерия
+            = fa_icon 'angle-down'
+          %ul.drop-menu
+            %li
+              = link_to parfum_materials_parfums_path do
+                Парфюмерное сырье
+            %li
+              = link_to parfum_recipes_parfums_path do
+                Рецепты духов
+            %li
+              = link_to parfums_path do
+                Все духи
       - if current_user.director?
         = link_to users_path do
           Пользователи

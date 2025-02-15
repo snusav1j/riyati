@@ -1,0 +1,40 @@
+
+
+.nav-list li.dropdown > a i {
+  transition: transform 0.3s;
+}
+.nav-list li.dropdown:hover > a i {
+  transform: rotate(90deg);
+}
+ul.nav-list.hidden.visible-md{
+  position: relative;
+  height: 100%;
+}
+.dropdown{
+  height: 100%;
+}
+.drop-menu{
+  position: absolute;
+  background: var(--secondary-color);
+}
+ul.drop-menu li a{
+  padding: 15px;
+}
+/* Dropdown */
+.nav-list > li.dropdown ul.drop-menu {
+  top: 60px;
+  left: -65px;
+  width: 200px;
+  text-align: left;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s, visibility 0.4s;
+  left: 0;
+}
+.nav-list li.dropdown ul.drop-menu a {
+
+}
+.nav-list > li.dropdown:hover ul.drop-menu {
+  visibility: visible;
+  opacity: 1;
+}

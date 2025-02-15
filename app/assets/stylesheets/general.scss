@@ -7,11 +7,13 @@
   --block-hover: #1e2750;
   --block-border-hover: #4e63b6;
   --block-shadow: var(--block-shadow);
-
+  --table-block-color: #1b2435;
+  --table-row-border: #52586d;
+  --table-border-color: rgb(32, 42, 61);
   --primary: #5b9aec;
   --hover-primary: #5b9aeccc;
-  --danger: #ff7782;
-  --hover-danger: #ff7782cc;
+  --danger: #d33e4a;
+  --hover-danger: #c23a45;
   --success: #41f190;
   --hover-success: #41f190cc;
   --warnig: #ff8f4e;
@@ -184,14 +186,17 @@ a{
 .nav-panel{
   height: 100%;
   display: flex;
+  align-items: center;
 }
+
 .nav-panel a{
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   height: 100%;
   transition: .2s ease;
   padding: 5px 10px;
+  gap: 10px;
 }
 .nav-panel a:hover{
   background: #8686861a;
@@ -243,13 +248,16 @@ input:hover{
 input:focus, select:focus{
   outline: 2px solid #9e9e9e17;
 }
+form .row:not(:last-child){
+  margin-bottom: 10px;
+}
 input, select{
   width: 100%;
   // transition: .2s ease !important;
-  padding: 16px 20px;
-  height: 50px;
+  padding: 0 15px;
+  height: 40px;
   border-radius: 5px;
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 600;
   border: unset;
   background-color: var(--input-bg);
@@ -310,4 +318,82 @@ label{
   margin-bottom: 5px;
   display: block;
   font-weight: 700;
+}
+ul,li{
+  text-decoration: none;
+  list-style: none;
+}
+.table-block{
+  padding: 15px;
+  background: var(--table-block-color);
+  border: 1px solid var(--table-border-color);
+}
+table{
+  border-collapse: collapse;
+  background: #1b2435;
+  padding: 10px;
+}
+table thead tr{
+  border-bottom: 1px solid var(--table-row-border);
+  
+}
+
+table tr:not(:last-child){
+  border-bottom: 1px solid var(--table-row-border);
+}
+table td, table th{
+  padding: 10px;
+  text-align: center;
+}
+table tbody tr:hover,
+table thead tr th:hover{
+  background: #253044;
+}
+table tbody tr,
+table thead tr th{
+  transition: .3s ease;
+}
+.block{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.block .block-item:hover{
+  background: var(--block-hover);
+  border: 1px solid var(--block-border-hover);
+  box-shadow: var(--block-shadow);
+}
+.block .block-item{
+  cursor: pointer;
+  transition: .3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: var(--tertiary-color);
+  border: 1px solid var(--border-color);
+  height: 60px;
+}
+.block .block-item div:first-child{
+  display: flex;
+  flex-direction: column;
+}
+.delete-btn:hover{
+  background: var(--hover-danger);
+}
+.delete-btn i{
+  pointer-events: none;
+}
+.delete-btn{
+  padding: 5px 10px;
+  background: var(--danger);
+  border-radius: 5px;
+  transition: .3s ease;
+}
+.block-controls{
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
