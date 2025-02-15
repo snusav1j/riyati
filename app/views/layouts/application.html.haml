@@ -1,9 +1,11 @@
 !!!
 %html
   %head
-    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no", :name => "viewport"}
     %meta{ charset: "utf-8" }
     %meta{:content => "yes", :name => "mobile-web-app-capable"}
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}
+
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application', type: "module"
     %title RIYATI
