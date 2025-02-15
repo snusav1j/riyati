@@ -16,6 +16,10 @@ class User < ApplicationRecord
     self.role == ROLE_DIRECTOR
   end
 
+  def role_name
+    
+  end
+  
   def avatar
     "R"
   end

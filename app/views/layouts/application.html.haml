@@ -15,9 +15,11 @@
 
     = csrf_meta_tags
   %body
+    - wrapper_style = !current_user.present? ? 'padding: 15px;' : ''
+    = render partial: 'layouts/sidebar' if current_user.present?
     %header
       #control-panel= render partial: 'layouts/panel'
-    .wrapper
+    .wrapper{ style: wrapper_style }
       = yield
     %footer
 

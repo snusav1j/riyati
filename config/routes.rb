@@ -32,4 +32,10 @@ Rails.application.routes.draw do
       get :get_user_coins
     end
   end
+  resources :parfums do
+    collection do
+      get :new_modal
+      get :edit_modal
+    end
+  end
 end

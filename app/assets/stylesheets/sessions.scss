@@ -31,3 +31,9 @@
   padding: 15px;
   transition: .3s ease;
 }
+@media screen and (max-width: 420px){
+  .form.login-form{
+    width: 100% !important;
+    // margin: 100px 30px 100px 15px;
+  }
+}

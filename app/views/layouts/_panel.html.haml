@@ -7,6 +7,8 @@
     %nav.nav-panel
       = link_to cryptos_path do
         Крипта
+      = link_to parfums_path do
+        Парфюм
       - if current_user.director?
         = link_to users_path do
           Пользователи

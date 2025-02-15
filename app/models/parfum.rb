@@ -1,0 +1,3 @@
+class Parfum < ApplicationRecord
+  
+end

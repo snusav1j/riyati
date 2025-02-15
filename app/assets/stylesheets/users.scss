@@ -85,7 +85,7 @@
   position: absolute;
   border-radius: 50%;
   bottom: 15px;
-  
+  margin-left: 10px;
   background: var(--main-color);
 }
 .profile-body{
@@ -99,7 +99,7 @@
 }
 .user-desc{
   display: flex;
-  margin-left: 150px;
+  margin-left: 160px;
   justify-content: space-between;
   align-items: center;
   gap: 20px;

@@ -1,0 +1,3 @@
+class ParfumIngridient < ApplicationRecord
+  
+end

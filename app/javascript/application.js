@@ -3,6 +3,7 @@
 //= import "controllers"
 //= require jquery
 //= require jquery_ujs
+//= require sidebar
 //= require cryptos
 //= import 'bootstrap'
 //= require bootstrap-sprockets

@@ -35,7 +35,9 @@
   background: var(--secondary-color) !important;
   // border-radius: 10px !important;
 }
-
+i {
+  margin: 0;
+}
 ::-webkit-scrollbar-track {
   background: var(--tertiary-color) !important;
   // border-radius: 10px !important;
