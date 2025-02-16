@@ -7,7 +7,7 @@ class ParfumRecipesController < ApplicationController
     @drops_count = params[:parfum_recipe][:drops_count]
     if @created
       @parfum_materials.each do |pm|
-        ParfumMaterialsForRecipe.create(material_id: pm, parfum_recipe_id: @parfum_recipe.id)
+        ParfumMaterialsForRecipe.create(material_id: pm, parfum_recipe_id: @parfum_recipe.id) if pm.present?
       end
       @drops_count.each do |dc|
         parfum_material_id = dc[0]
@@ -29,7 +29,7 @@ class ParfumRecipesController < ApplicationController
     if @updated
       ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).delete_all
       @parfum_materials.each do |pm|
-        ParfumMaterialsForRecipe.create(material_id: pm, parfum_recipe_id: @parfum_recipe.id)
+        ParfumMaterialsForRecipe.create(material_id: pm, parfum_recipe_id: @parfum_recipe.id) if pm.present?
       end
       @drops_count.each do |dc|
         parfum_material_id = dc[0]
