@@ -1,6 +1,7 @@
 class ParfumsController < ApplicationController
 
   def index
+    ParfumRecipe.create()
     @parfum = Parfum.all
   end
 
@@ -37,6 +38,19 @@ class ParfumsController < ApplicationController
   def edit_parfum_materials_modal
     @id = params[:id]
     @parfum_material = ParfumMaterial.find_by(id: @id)
+    respond_to :js
+  end
+
+  def new_parfum_recipes_modal
+    @parfum_materials_for_recipe_list = []
+    @parfum_recipe = ParfumRecipe.new
+    respond_to :js
+  end
+
+  def edit_parfum_recipes_modal
+    @id = params[:id]
+    @parfum_recipe = ParfumRecipe.find_by(id: @id)
+    @parfum_materials_for_recipe_list = ParfumRecipe.parfum_materials_for_recipe_list(@parfum_recipe)
     respond_to :js
   end
 

@@ -1,3 +1,12 @@
 #dop-control-panel
   Рецепты духов
+  #new-parfum-recipe-modal.form-button.small-button
+    = fa_icon :plus
 .content
+  .row 
+    .col-md-3
+    .col-md-6
+      .parfum-recipe-block.block
+        - @parfum_recipes.each do |pr|
+          = render partial: "parfum_recipe_item", locals: { pr: pr }
+    .col-md-3

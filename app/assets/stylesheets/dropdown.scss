@@ -13,6 +13,9 @@ ul.nav-list.hidden.visible-md{
 .dropdown{
   height: 100%;
 }
+.drop-menu a{
+  white-space: nowrap;
+}
 .drop-menu{
   position: absolute;
   background: var(--secondary-color);
@@ -24,7 +27,7 @@ ul.drop-menu li a{
 .nav-list > li.dropdown ul.drop-menu {
   top: 60px;
   left: -65px;
-  width: 200px;
+  width: fit-content;
   text-align: left;
   visibility: hidden;
   opacity: 0;

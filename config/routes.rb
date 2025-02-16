@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   
   resources :parfum_recipes do
     collection do
-
+      get :delete_parfum_recipes
     end
   end
 
@@ -55,8 +55,10 @@ Rails.application.routes.draw do
       get :new_parfum_modal
       get :new_parfum_materials_modal
       get :edit_parfum_materials_modal
-      post :save_parfum_material
-      post :update_parfum_material
+      get :new_parfum_recipes_modal
+      get :edit_parfum_recipes_modal
+      # post :save_parfum_material
+      # post :update_parfum_material
     end
   end
 end

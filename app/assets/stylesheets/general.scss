@@ -37,6 +37,9 @@
   background: var(--secondary-color) !important;
   // border-radius: 10px !important;
 }
+.text-danger{
+  color: var(--danger) !important;
+}
 i {
   margin: 0;
 }
@@ -254,14 +257,16 @@ form .row:not(:last-child){
 input, select{
   width: 100%;
   // transition: .2s ease !important;
-  padding: 0 15px;
+  padding: 10px 15px;
   height: 40px;
   border-radius: 5px;
   font-size: 14px !important;
   font-weight: 600;
   border: unset;
-  background-color: var(--input-bg);
+  background-color: var(--input-bg) !important;
+  background: var(--input-bg) !important;
   color: var(--main-text-color) !important;
+  width: 100% !important;
 }
 .form-button:hover{
   background: var(--button-hover-color);

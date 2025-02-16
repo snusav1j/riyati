@@ -1,0 +1,3 @@
+$('#parfum-recipe-modal-outer').html("<%= j render partial: 'new_parfum_recipes_modal', locals: { parfum_materials_for_recipe_list: @parfum_materials_for_recipe_list, url: parfum_recipe_path(@parfum_recipe), parfum_recipe: @parfum_recipe, title: 'Редактировать рецепт духов' } %>");
+$().setMultipleSelect();
+$('#parfum-recipe-modal').modal('show');

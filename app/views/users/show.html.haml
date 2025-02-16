@@ -46,17 +46,3 @@
                 = fa_icon :edit
         .user-registered-info
           .text-muted= @user.registered_info
-        .user-coins
-          .user-coins-head.text-bold.text-big
-            = "Монеты"
-            = "(#{@coins.length})" if @coins.present?
-          .user-coins-body
-            .coins-block
-              - if @coins.present?
-                .loader= fa_icon "circle-o-notch spin"
-              - else
-                Монеты не найдены
-          .profile-wall
-  .col-md-3.user-actions-panel
-    -# .content 
-    -#   1

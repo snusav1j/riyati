@@ -23,3 +23,28 @@ $ ->
       type: "GET"
       data:
         id: id
+
+  $(document).on 'click', '#new-parfum-recipe-modal', (e) ->
+    $.ajax
+      url: "/parfums/new_parfum_recipes_modal"
+      dataType: "script"
+      type: "GET"
+
+  $(document).on 'click', '.parfum-recipe-item', (e) ->
+    if !e.target.classList.contains('delete-btn')
+      id = $(this).attr('data-parfum-recipe-id')
+      $.ajax
+        url: "/parfums/edit_parfum_recipes_modal"
+        dataType: "script"
+        type: "GET"
+        data:
+          id: id
+
+  $(document).on 'click', '.delete-parfum-recipe-btn', (e) ->
+    id = $(this).attr('data-parfum-recipe-id')
+    $.ajax
+      url: "/parfum_recipes/delete_parfum_recipes"
+      dataType: "script"
+      type: "GET"
+      data:
+        id: id

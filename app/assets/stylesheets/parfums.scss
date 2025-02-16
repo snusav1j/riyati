@@ -1,0 +1,9 @@
+.multi-select-item input{
+  margin-top: 5px;
+}
+.multi-select-item:first-child{
+  margin-top: 5px;
+}
+.multi-select-item:not(:last-child){
+  margin-bottom: 15px;
+}

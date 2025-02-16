@@ -9,3 +9,4 @@
 //= require bootstrap-sprockets
 //= require toastr
 //= require parfums
+//= require multiple_select

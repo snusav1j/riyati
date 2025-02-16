@@ -12,14 +12,14 @@
           .row
             .col-md-12
               = f.label "Название сырья"
-              = f.text_field :material_name
+              = f.text_field :material_name, required: true
           .row
             .col-md-6
               = f.label "Миллилитры"
-              = f.number_field :material_ml
+              = f.number_field :material_ml, required: true
             .col-md-6
               = f.label "Затраты"
-              = f.number_field :expense
+              = f.number_field :expense, required: true
       .modal-footer 
-        %button{ type: 'submit', form: 'parfum-material', "data-bs-dismiss" => "modal", class: 'save-btn default-btn' } Закрыть
+        %button{ "data-bs-dismiss" => "modal", class: 'save-btn default-btn' } Закрыть
         %button{ type: 'submit', form: 'parfum-material', class: 'save-btn primary-btn' } Сохранить

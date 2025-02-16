@@ -1,0 +1,10 @@
+.parfum-recipe-item.block-item{ data: { parfum_recipe_id: pr.id } }
+  .parfum-recipe-info
+    %div= "Рецепт ##{pr.id}"
+    %div.text-muted= "#{pr.ml} мл." if pr.ml.present?
+  
+  .block-controls
+    .parfum-recipe-expense
+      .text-muted= "Использовано расходников: #{pr.parfum_materials_for_recipe.length}"
+    .delete-parfum-recipe-btn.delete-btn{ data: { parfum_recipe_id: pr.id } }
+      = fa_icon :trash

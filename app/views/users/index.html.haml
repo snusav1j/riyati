@@ -1,16 +1,9 @@
 #dop-control-panel
   Пользователи
+  = link_to new_user_path do
+    .form-button.small-button{ style: "margin-left: 15px;" }
+      = fa_icon :plus
 .content
-  .row
-    .col-md-3
-    .col-md-6
-      .add-user-block
-        %span.text-bold.text-big= "Пользователи: #{User.all.length}"
-        - if current_user.director?
-          = link_to new_user_path do
-            .form-button.small-button{ style: "margin-left: 15px;" }
-              = fa_icon :plus
-    .col-md-3
   .row
     .col-md-3
     .col-md-6

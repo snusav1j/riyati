@@ -1,0 +1,28 @@
+.modal.fade.in#parfum-recipe-modal{:tabindex => "-1"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %h5.modal-title
+          = title
+        %button.btn-without-background.small-button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+          = fa_icon :times
+      .modal-body
+        = form_for parfum_recipe, remote: true, html: { id: 'parfum-recipe' }, url: url do |f|
+          = f.number_field :id, style: "display: none;"
+          .row
+            .col-md-12
+              = f.label "Материалы"
+              .multi-selector-block{ data: { form_name: 'parfum_recipe', show_items_block: 'true', select_name: 'drops_count' } }
+                = f.select :parfum_material_id, options_for_select(ParfumMaterial.all.map{|r| [r.material_name, r.id]}, parfum_materials_for_recipe_list), multiple: true, id: 'parfum-recipe-materials'
+          .row
+            .col-md-12
+              .multi-select-items
+                - if parfum_recipe.id.present?
+                  - parfum_materials_for_recipe_list.each do |parfume_material_id|
+                    - parfume_material_name = ParfumMaterial.find_by(id: parfume_material_id).present? ? ParfumMaterial.find_by(id: parfume_material_id).material_name : '-'
+                    .multi-select-item
+                      = parfume_material_name
+                      %input{ type: :number, step: "0.01", name: "parfum_recipe[drops_count][#{parfume_material_id}]", value: get_spent_material_ml(parfum_recipe.id, parfume_material_id) }
+      .modal-footer 
+        %button{ "data-bs-dismiss" => "modal", class: 'save-btn default-btn' } Закрыть
+        %button{ type: 'submit', form: 'parfum-recipe', class: 'save-btn primary-btn' } Сохранить

@@ -1,8 +1,10 @@
 .parfum-material-item.block-item{ data: { parfum_material_id: pm.id } }
   .parfum-material-info
     %div= pm.material_name
-    %div.text-muted= "#{pm.material_ml} мл." if pm.material_ml.present?
-  
+    %div.text-muted
+      = "#{(pm.material_ml - pm.get_total_spent_material_ml).round(2)} мл." if pm.material_ml.present?
+      %span.text-danger= "(потрачено: #{pm.get_total_spent_material_ml} мл.)" if pm.get_total_spent_material_ml > 0
+
   .block-controls
     .parfum-material-expense
       = "#{pm.expense} ₽" if pm.expense.present?

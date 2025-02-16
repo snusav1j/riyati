@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def create_super_user
     user_present = User.find_by(login: "riyati")
     if !user_present.present?
-      User.create(login: 'riyati', password: 555, role: 'director', firstname: 'owner')
+      User.create(login: 'riyati', password: 555, role: 'ceo', firstname: 'riyati')
     end
   end
 
