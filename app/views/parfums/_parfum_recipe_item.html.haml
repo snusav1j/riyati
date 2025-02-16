@@ -5,6 +5,6 @@
   
   .block-controls
     .parfum-recipe-expense
-      .text-muted= "Использовано расходников: #{pr.parfum_materials_for_recipe.length}"
+      .text-muted= "Расходников: #{pr.parfum_materials_for_recipe.length}"
     .delete-parfum-recipe-btn.delete-btn{ data: { parfum_recipe_id: pr.id } }
       = fa_icon :trash
