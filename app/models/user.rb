@@ -6,8 +6,9 @@ class User < ApplicationRecord
   ROLE_USER = 'user'
 
   scope :by_coin_symbol, ->(crypto_symbol) { where("user.user_coins.crypto_symbol = ?", crypto_symbol) if crypto_symbol }
-
-  ROLES = [ROLE_CEO, ROLE_DIRECTOR, ROLE_USER]
+  
+  CEO_ROLES = [ROLE_CEO, ROLE_DIRECTOR, ROLE_USER]
+  DIRECTOR_ROLES = [ROLE_DIRECTOR, ROLE_USER]
 
   def self.get_user_coins(user_id)
     UserCoin.where(user_id: user_id)

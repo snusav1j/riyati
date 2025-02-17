@@ -20,11 +20,11 @@
       .col-md-12
         = f.label "Пароль"
         = f.number_field :password, placeholder: "Пароль", type: :password, required: true, autocomplete: "new-password"
-    - if current_user.ceo?
+    - if (current_user.ceo? || current_user.director?) && !(@user.ceo? && current_user.director?)
       .row
         .col-md-12
           = f.label "Роль"
-          = f.select :role, options_for_select(User::ROLES.map{|r| [t("role_name_#{r}"), r]}, @user.role)
+          = f.select :role, options_for_select(user_roles_list.map{|r| [t("role_name_#{r}"), r]}, @user.role)
       -# .row
       -#   .col-md-12
       -#     = f.label "Баланс"
