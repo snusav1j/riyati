@@ -6,7 +6,8 @@ module ParfumsHelper
   end
 
   def one_drop_ml
-    "1 капля ~ #{ParfumDropAvgMl.first.ml} мл."
+    ml = ParfumDropAvgMl.first.present? ? ParfumDropAvgMl.first.ml : 0
+    "1 капля ~ #{ml} мл."
   end
 
 end
