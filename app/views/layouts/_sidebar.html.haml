@@ -37,7 +37,7 @@
                 %li
                   = link_to parfums_path do
                     Все духи
-          - if current_user.director?
+          - if current_user.director? || current_user.ceo?
             %li
               = link_to users_path do
                 Пользователи

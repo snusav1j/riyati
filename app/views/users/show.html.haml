@@ -23,8 +23,8 @@
     .content
       #user_id{ style: "display: none !important;" }= @user.id
       .back-to-users
-        - user_back_link = current_user.director? ? users_path : root_path
-        - user_back_title = current_user.director? ? 'Назад' : 'На главную'
+        - user_back_link = current_user.director? || current_user.ceo? ? users_path : root_path
+        - user_back_title = current_user.director? || current_user.ceo? ? 'Назад' : 'На главную'
         = link_to user_back_link do
           %span.text-muted.text-xxl= fa_icon "arrow-left"
         %span.text-xxl.text-bold= user_back_title
@@ -39,7 +39,7 @@
             = @user.firstname
             %span.hide-on-laptop= @user.lastname
             #user-id.text-muted.text-big= @user.user_login_id
-          - if current_user.director? || current_user == @user
+          - if current_user.director? || current_user.ceo? || current_user == @user
             = link_to edit_user_path(@user) do
               .user-edit-btn
                 %span.hide-on-mobile= "Редактировать"
