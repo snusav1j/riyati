@@ -11,11 +11,11 @@ class ParfumRecipesController < ApplicationController
       end
       @drops_count.each do |dc|
         parfum_material_id = dc[0]
-        spent_material_ml = dc[1]
+        spent_material = dc[1]
         if ParfumMaterial.find_by(id: dc[0]).liquid_material?
-          ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).find_by(material_id: parfum_material_id).update(spent_material_ml: spent_material_ml)
+          ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).find_by(material_id: parfum_material_id).update(spent_material_ml: spent_material)
         else
-          ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).find_by(material_id: parfum_material_id).update(spent_material_count: spent_material_ml)
+          ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).find_by(material_id: parfum_material_id).update(spent_material_count: spent_material)
         end
       end
     end
@@ -37,11 +37,11 @@ class ParfumRecipesController < ApplicationController
       end
       @drops_count.each do |dc|
         parfum_material_id = dc[0]
-        spent_material_ml = dc[1]
+        spent_material = dc[1]
         if ParfumMaterial.find_by(id: dc[0]).liquid_material?
-          ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).find_by(material_id: parfum_material_id).update(spent_material_ml: spent_material_ml)
+          ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).find_by(material_id: parfum_material_id).update(spent_material_ml: spent_material)
         else
-          ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).find_by(material_id: parfum_material_id).update(spent_material_count: spent_material_ml)
+          ParfumMaterialsForRecipe.where(parfum_recipe_id: @parfum_recipe.id).find_by(material_id: parfum_material_id).update(spent_material_count: spent_material)
         end
       end
     end
