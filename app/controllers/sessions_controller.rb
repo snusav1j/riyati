@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  # before_action :ensure_current_user
   def new
     @user = User.new
   end

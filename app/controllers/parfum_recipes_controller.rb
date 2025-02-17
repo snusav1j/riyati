@@ -1,5 +1,5 @@
 class ParfumRecipesController < ApplicationController
-
+  before_action :ensure_current_user
   def create
     @parfum_materials = params[:parfum_recipe][:parfum_material_id]
     @params = params

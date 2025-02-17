@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :set_cache_headers
   before_action :create_super_user
   
-
   def create_super_user
     user_present = User.find_by(login: "riyati")
     if !user_present.present?

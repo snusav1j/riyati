@@ -1,4 +1,5 @@
 class ParfumsController < ApplicationController
+  before_action :ensure_current_user
   before_action :create_parfum_drop_avg
 
   def index

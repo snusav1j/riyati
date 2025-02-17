@@ -1,5 +1,5 @@
 class ParfumMaterialsController < ApplicationController
-
+  before_action :ensure_current_user
   def create
     @created = @parfum_material = ParfumMaterial.create(parfum_materials_params)
     respond_to :js

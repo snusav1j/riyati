@@ -1,5 +1,6 @@
 class CryptosController < ApplicationController
   include CryptosHelper
+  
   # before_action :crypto_data
 
   def index
