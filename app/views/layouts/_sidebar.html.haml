@@ -29,14 +29,14 @@
             .sidebar-submenu
               %ul
                 %li
-                  = link_to parfum_materials_parfums_path do
-                    Парфюмерные расходники
+                  = link_to parfums_path do
+                    Духи
                 %li
                   = link_to parfum_recipes_parfums_path do
-                    Рецепты духов
+                    Рецепты
                 %li
-                  = link_to parfums_path do
-                    Все духи
+                  = link_to parfum_materials_parfums_path do
+                    Расходники
           - if current_user.director? || current_user.ceo?
             %li
               = link_to users_path do
