@@ -41,6 +41,8 @@ $ ->
         data:
           id: id
 
+  $(document).on 'change', '#parfum_drop_avg_ml_ml', (e) ->
+    $('#parfum_drop_avg_ml_ml').val($(this).val())
   $(document).on 'keyup', '#parfum_drop_avg_ml_ml', (e) ->
     $('#parfum_drop_avg_ml_ml').val($(this).val())
 
