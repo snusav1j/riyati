@@ -22,7 +22,7 @@ class ParfumMaterialsController < ApplicationController
   private
   
   def parfum_materials_params
-    params.expect(parfum_material: [ :id, :material_name, :material_ml, :expense ])
+    params.expect(parfum_material: [ :id, :material_name, :material_ml, :expense, :liquid_material, :material_count ])
   end
 
 end

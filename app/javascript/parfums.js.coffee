@@ -41,6 +41,19 @@ $ ->
         data:
           id: id
 
+  $(document).on 'keyup', '#parfum_drop_avg_ml_ml', (e) ->
+    $('#parfum_drop_avg_ml_ml').val($(this).val())
+
+  $(document).on 'change', '#parfum_material_liquid_material', (e) ->
+    if $(this).prop('checked')
+      $('.parfum-material-ml').show()
+      $('.parfum-material-count').hide()
+      $('input#parfum_material_material_name').val('Эфирное масло ')
+    else
+      $('.parfum-material-ml').hide()
+      $('.parfum-material-count').show()
+      $('input#parfum_material_material_name').val('Атомайзер ')
+
   $(document).on 'click', '.delete-parfum-material-btn', (e) ->
     id = $(this).attr('data-parfum-material-id')
     $.ajax

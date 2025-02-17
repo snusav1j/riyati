@@ -2,8 +2,17 @@
   .parfum-material-info
     %div= pm.material_name
     %div.text-muted
-      = "#{(pm.material_ml - pm.get_total_spent_material_ml).round(2)} мл." if pm.material_ml.present?
-      %span.text-danger= "(потрачено: #{pm.get_total_spent_material_ml} мл.)" if pm.get_total_spent_material_ml > 0
+      
+      - if pm.liquid_material?
+        - material_ml_style = pm.liquid_material_mls_left > 0 ? '' : 'text-danger'
+        
+        %span{ class: material_ml_style }= "#{pm.liquid_material_mls_left} мл."
+        %span.text-warning= "(- #{pm.get_total_spent_liquid_material_ml} мл.)" if pm.get_total_spent_liquid_material_ml > 0
+      - else
+        - material_count_style = pm.not_liquid_material_count_left > 0 ? '' : 'text-danger'
+
+        %span{ class: material_count_style }= "#{pm.not_liquid_material_count_left} шт."
+        %span.text-warning= "(- #{pm.get_total_spent_not_liquid_material_count} шт.)" if pm.get_total_spent_not_liquid_material_count > 0
 
   .block-controls
     .parfum-material-expense
