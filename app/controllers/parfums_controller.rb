@@ -1,4 +1,5 @@
 class ParfumsController < ApplicationController
+  before_action :create_parfum_drop_avg
 
   def index
     @parfums = Parfum.all
@@ -77,6 +78,12 @@ class ParfumsController < ApplicationController
   end
 
   private
+
+  def create_parfum_drop_avg
+    if !ParfumDropAvgMl.first.present?
+      ParfumDropAvgMl.create(ml: 0)
+    end
+  end
 
   def parfums_params
     params.expect(parfum: [ :id, :parfum_name, :parfum_description, :tester, :parfum_recipe_id ])
