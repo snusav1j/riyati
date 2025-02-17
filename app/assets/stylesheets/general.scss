@@ -32,6 +32,10 @@
   --secondary-text-color: #676a7b;
   --main-text-color: #f6f6f6;
 }
+textarea::-webkit-resizer{
+  background: #202831d4 !important;
+  border-radius: 15px 0 0 !important;
+}
 .default-btn:hover{
   
 }
