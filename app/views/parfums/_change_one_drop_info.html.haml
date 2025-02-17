@@ -1,0 +1,6 @@
+= form_for ParfumDropAvgMl.first, remote: true, html: { id: 'parfum-one-drop' }, url: parfum_drop_avg_ml_path(ParfumDropAvgMl.first) do |f|
+
+  .change-drop-info-form-controls
+    = f.number_field :ml, step: 0.01
+    %button{ type: 'submit', form: 'parfum-one-drop', class: 'save-btn primary-btn' }
+      = fa_icon :check

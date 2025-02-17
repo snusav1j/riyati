@@ -1,16 +1,26 @@
 class ParfumsController < ApplicationController
 
   def index
-    ParfumRecipe.create()
-    @parfum = Parfum.all
+    @parfums = Parfum.all
   end
 
   def create
-
+    @created = @parfum = Parfum.create(parfums_params)
+    respond_to :js
   end
 
   def update
+    @id = parfums_params[:id]
+    @parfum = Parfum.find_by(id: @id)
+    @updated = @parfum.update(parfums_params)
+    respond_to :js
+  end
 
+  def delete_parfum
+    @id = params[:id]
+    @parfum = Parfum.find_by(id: @id)
+    @deleted = @parfum.delete
+    respond_to :js
   end
 
   def parfum_materials
@@ -26,7 +36,15 @@ class ParfumsController < ApplicationController
   end
 
   def new_parfum_modal
+    @parfum = Parfum.new()
+    @parfum_recipe_id = params[:parfum_recipe_id]
+    respond_to :js
+  end
 
+  def edit_parfum_modal
+    @id = params[:id]
+    @parfum_recipe_id = params[:parfum_recipe_id]
+    @parfum = Parfum.find_by(id: @id)
     respond_to :js
   end
 
@@ -61,7 +79,7 @@ class ParfumsController < ApplicationController
   private
 
   def parfums_params
-    params.expect(parfum: [ :id, :parfum_name, :parfum_description, :tester ])
+    params.expect(parfum: [ :id, :parfum_name, :parfum_description, :tester, :parfum_recipe_id ])
   end
 
   def parfum_drop_avg_mls_params

@@ -15,7 +15,7 @@ class ParfumMaterialsController < ApplicationController
   def delete_parfum_materials
     @id = params[:id]
     @parfum_material = ParfumMaterial.find_by(id: @id)
-    @destroyed = @parfum_material.delete
+    @deleted = @parfum_material.delete
     respond_to :js
   end
 

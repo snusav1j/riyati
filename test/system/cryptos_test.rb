@@ -34,6 +34,6 @@ class CryptosTest < ApplicationSystemTestCase
     visit crypto_url(@crypto)
     click_on "Destroy this crypto", match: :first
 
-    assert_text "Crypto was successfully destroyed"
+    assert_text "Crypto was successfully deleted"
   end
 end

@@ -1,5 +1,15 @@
 #dop-control-panel
   Парфюмерия
-  #new-parfum-modal.form-button.small-button
-    = fa_icon :plus
+  .dop-info-controls
+    %span.text-muted.one-drop-info
+      = one_drop_ml
+    #new-parfum-modal.form-button.small-button
+      = fa_icon :plus
 .content
+  .row 
+    .col-md-3
+    .col-md-6
+      .parfum-block.block
+        - @parfums.each do |p|
+          = render partial: "parfum_item", locals: { p: p }
+    .col-md-3

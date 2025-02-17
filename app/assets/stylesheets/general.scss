@@ -14,10 +14,10 @@
   --hover-primary: #5b9aeccc;
   --danger: #d33e4a;
   --hover-danger: #c23a45;
-  --success: #41f190;
-  --hover-success: #41f190cc;
-  --warnig: #ff8f4e;
-  --hover-warnig: #ff8f4ecc;
+  --success: #17a050;
+  --hover-success: #1e9750;
+  --warnig: #e0740e;
+  --hover-warnig: #d47012;
   --hover-main-color: #1b2431;
   --light-main-color: #162235;
   --main-color: #0c1421;
@@ -32,13 +32,54 @@
   --secondary-text-color: #676a7b;
   --main-text-color: #f6f6f6;
 }
+.default-btn:hover{
+  
+}
+.default-btn{
+
+}
+
+.success-btn:hover{
+  background: var(--hover-success) !important;
+}
+.success-btn{
+  background: var(--success) !important;
+}
+.danger-btn:hover{
+  background: var(--hover-danger) !important;
+}
+.danger-btn{
+  background: var(--danger) !important;
+}
+.warning-btn:hover{
+  background: var(--hover-warning) !important;
+}
+.warning-btn{
+  background: var(--warning) !important;
+}
+.primary-btn:hover{
+  background: var(--brand-hover-color) !important;
+}
+.primary-btn{
+  background: var(--brand-color) !important;
+}
 ::-webkit-scrollbar {
   width: 5px;
   background: var(--secondary-color) !important;
   // border-radius: 10px !important;
 }
+
 .text-danger{
   color: var(--danger) !important;
+}
+.text-success{
+  color: var(--success) !important;
+}
+.text-warning{
+  color: var(--warnig) !important;
+}
+.text-primary{
+  color: var(--brand-color) !important;
 }
 i {
   margin: 0;
@@ -181,6 +222,7 @@ button.btn-without-background:hover{
   box-sizing: border-box;
   margin: 0; padding: 0;
   font-size: 14px;
+  -webkit-tap-highlight-color: transparent;
 }
 a{
   text-decoration: none !important;
@@ -254,7 +296,8 @@ input:focus, select:focus{
 form .row:not(:last-child){
   margin-bottom: 10px;
 }
-input, select{
+input, select, textarea{
+  outline: unset !important;
   width: 100%;
   // transition: .2s ease !important;
   padding: 10px 15px;
@@ -401,4 +444,35 @@ table thead tr th{
   display: flex;
   align-items: center;
   gap: 15px;
+}
+.dop-info-block{
+  background: var(--tertiary-color);
+  border-radius: 5px;
+  padding: 10px;
+  
+}
+.dop-info-block, .parfum-material-block.block{
+  height: 100%;
+}
+.group-row label{
+  margin: 0 !important;
+}
+.group-row{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+input[type=checkbox]{
+  width: fit-content !important;
+}
+input[type=checkbox]:active,
+input[type=checkbox]:focus{
+  border: unset !important;
+  outline: unset !important;
+}
+textarea{
+  min-height: 80px;
+}
+textarea{
+  outline: unset !important;
 }

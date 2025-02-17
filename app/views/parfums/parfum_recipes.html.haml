@@ -1,7 +1,10 @@
 #dop-control-panel
   Рецепты духов
-  #new-parfum-recipe-modal.form-button.small-button
-    = fa_icon :plus
+  .dop-info-controls
+    %span.text-muted.one-drop-info
+      = one_drop_ml
+    #new-parfum-recipe-modal.form-button.small-button
+      = fa_icon :plus
 .content
   .row 
     .col-md-3

@@ -45,6 +45,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :parfum_drop_avg_mls do
+    collection do
+
+    end
+  end
+
   resources :parfums do
     collection do
       get :new_modal
@@ -53,10 +59,13 @@ Rails.application.routes.draw do
       get :parfum_recipes
       get :parfum_drop_avg_mls
       get :new_parfum_modal
+      get :edit_parfum_modal
+      get :delete_parfum
       get :new_parfum_materials_modal
       get :edit_parfum_materials_modal
       get :new_parfum_recipes_modal
       get :edit_parfum_recipes_modal
+      get :change_one_drop_info
       # post :save_parfum_material
       # post :update_parfum_material
     end

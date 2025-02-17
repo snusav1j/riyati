@@ -5,4 +5,8 @@ module ParfumsHelper
     parfum_used_materials
   end
 
+  def one_drop_ml
+    "1 капля ~ #{ParfumDropAvgMl.first.ml} мл."
+  end
+
 end

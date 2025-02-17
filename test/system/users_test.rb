@@ -46,6 +46,6 @@ class UsersTest < ApplicationSystemTestCase
     visit user_url(@user)
     click_on "Destroy this user", match: :first
 
-    assert_text "User was successfully destroyed"
+    assert_text "User was successfully deleted"
   end
 end

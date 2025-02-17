@@ -1,3 +1,3 @@
-$('#parfum-material-modal-outer').html("<%= j render partial: 'new_parfum_materials_modal', locals: { url: parfum_material_path(@parfum_material), parfum_material: @parfum_material, title: 'Редактировать парфюмерный расходник' } %>");
+$('#parfum-material-modal-outer').html("<%= j render partial: 'parfum_materials_modal', locals: { url: parfum_material_path(@parfum_material), parfum_material: @parfum_material, title: 'Редактировать парфюмерный расходник' } %>");
 $('input#parfum_material_material_name').val('Эфирное масло ')
 $('#parfum-material-modal').modal('show');

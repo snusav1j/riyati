@@ -1,4 +1,4 @@
-<% if @destroyed %>
+<% if @deleted %>
   toastr.error('Расходник удален.')
   $(".parfum-material-item.block-item[data-parfum-material-id='<%= @parfum_material.id %>']").remove();
 

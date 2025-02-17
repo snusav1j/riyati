@@ -1,7 +1,10 @@
 #dop-control-panel
   Парфюмерные расходники
-  #new-parfum-material-modal.form-button.small-button
-    = fa_icon :plus
+  .dop-info-controls
+    %span.text-muted.one-drop-info
+      = one_drop_ml
+    #new-parfum-material-modal.form-button.small-button
+      = fa_icon :plus
 .content
   .row 
     .col-md-3
@@ -10,3 +13,4 @@
         - @parfum_materials.each do |pm|
           = render partial: "parfum_material_item", locals: { pm: pm }
     .col-md-3
+
