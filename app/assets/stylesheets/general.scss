@@ -531,7 +531,7 @@ textarea{
   justify-content: space-between;
 }
 .block-item-info-header{
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 .no-data-block div{
   width: fit-content;
@@ -542,4 +542,7 @@ textarea{
   display: flex;
   gap: 10px;
   align-items: center;
+}
+.block-item-info-body div:not(:last-child){
+  margin-bottom: 1.5px;
 }
