@@ -16,6 +16,9 @@ class ParfumMaterialsController < ApplicationController
     @id = params[:id]
     @parfum_material = ParfumMaterial.find_by(id: @id)
     @deleted = @parfum_material.delete
+    if @deleted
+      ParfumMaterialsForRecipe.where(material_id: @id).delete_all
+    end
     respond_to :js
   end
 

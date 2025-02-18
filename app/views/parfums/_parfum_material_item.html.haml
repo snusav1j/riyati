@@ -24,12 +24,15 @@
         = fa_icon :trash
   .block-item-info
     .block-item-info-header Используется:
-    .block-item-info-body
-      %div
-        - pm.materials_used_in.each do |pmu|
-          - if pm.liquid_material?
-            .text-muted.text-small= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(pm.id)} мл.)"
-          - else
-            .text-muted.text-small= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(pm.id)} шт.)"
-      %div
-        .text-muted= "Затрачено на расходник ~ #{pm.expense} ₽" if pm.expense.present?
+    - if pm.materials_used_in.present?
+      .block-item-info-body
+        %div
+          - pm.materials_used_in.each do |pmu|
+            - if pm.liquid_material?
+              .text-muted.text-small= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(pm.id)} мл.)"
+            - else
+              .text-muted.text-small= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(pm.id)} шт.)"
+        %div
+          .text-muted= "Затрачено на расходник ~ #{pm.expense} ₽" if pm.expense.present?
+    - else
+      .text-muted.text-small Еще нигде не использовался
