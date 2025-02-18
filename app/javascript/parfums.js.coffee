@@ -30,6 +30,16 @@ $ ->
         data:
           id: id
 
+  
+  $(document).on 'click', '.refresh-parfum-recipe-modal-data', (e) ->
+    url = $(this).attr('data-url')
+    $.ajax
+      url: "/parfums/refresh_parfum_recipe_modal_data"
+      dataType: "script"
+      type: "GET"
+      data:
+        url: url
+
   $(document).on 'dblclick', '.parfum-item', (e) ->
     if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info'))
       id = $(this).attr('data-parfum-id')

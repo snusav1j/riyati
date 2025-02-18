@@ -533,3 +533,13 @@ textarea{
 .block-item-info-header{
   margin-bottom: 5px;
 }
+.no-data-block div{
+  width: fit-content;
+  cursor: pointer;
+}
+.no-data-block{
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

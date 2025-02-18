@@ -10,6 +10,12 @@ class ParfumsController < ApplicationController
     @parfums = Parfum.all
   end
 
+  def refresh_parfum_recipe_modal_data
+    @parfum_materials_for_recipe_list = []
+    @parfum_recipe = ParfumRecipe.new
+    @url = params[:url]
+  end
+
   def create
     @created = @parfum = Parfum.create(parfums_params)
     respond_to :js
