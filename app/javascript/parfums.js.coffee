@@ -8,7 +8,7 @@ $ ->
       data:
         parfum_recipe_id: parfum_recipe_id
 
-  $(document).on 'click', '#new-parfum-modal', (e) ->
+  $(document).on 'dblclick', '#new-parfum-modal', (e) ->
     $.ajax
       url: "/parfums/new_parfum_modal"
       dataType: "script"
@@ -20,8 +20,8 @@ $ ->
       dataType: "script"
       type: "GET"
 
-  $(document).on 'click', '.parfum-material-item', (e) ->
-    if !e.target.classList.contains('delete-btn')
+  $(document).on 'dblclick', '.parfum-material-item', (e) ->
+    if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info'))
       id = $(this).attr('data-parfum-material-id')
       $.ajax
         url: "/parfums/edit_parfum_materials_modal"
@@ -30,9 +30,8 @@ $ ->
         data:
           id: id
 
-  $(document).on 'click', '.parfum-item', (e) ->
-    if !e.target.classList.contains('delete-btn')
-      
+  $(document).on 'dblclick', '.parfum-item', (e) ->
+    if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info'))
       id = $(this).attr('data-parfum-id')
       $.ajax
         url: "/parfums/edit_parfum_modal"
@@ -56,7 +55,7 @@ $ ->
       $('.parfum-material-count').show()
       $('input#parfum_material_material_name').val('Атомайзер ')
 
-  $(document).on 'click', '.delete-parfum-material-btn', (e) ->
+  $(document).on 'dblclick', '.delete-parfum-material-btn', (e) ->
     id = $(this).attr('data-parfum-material-id')
     $.ajax
       url: "/parfum_materials/delete_parfum_materials"
@@ -71,8 +70,8 @@ $ ->
       dataType: "script"
       type: "GET"
 
-  $(document).on 'click', '.parfum-recipe-item', (e) ->
-    if !e.target.classList.contains('delete-btn')
+  $(document).on 'dblclick', '.parfum-recipe-item', (e) ->
+    if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info'))
       id = $(this).attr('data-parfum-recipe-id')
       $.ajax
         url: "/parfums/edit_parfum_recipes_modal"
@@ -81,7 +80,7 @@ $ ->
         data:
           id: id
 
-  $(document).on 'click', '.delete-parfum-recipe-btn', (e) ->
+  $(document).on 'dblclick', '.delete-parfum-recipe-btn', (e) ->
     id = $(this).attr('data-parfum-recipe-id')
     $.ajax
       url: "/parfum_recipes/delete_parfum_recipes"
@@ -90,7 +89,7 @@ $ ->
       data:
         id: id
 
-  $(document).on 'click', '.delete-parfum-btn', (e) ->
+  $(document).on 'dblclick', '.delete-parfum-btn', (e) ->
     id = $(this).attr('data-parfum-id')
     $.ajax
       url: "/parfums/delete_parfum"
@@ -105,3 +104,16 @@ $ ->
         url: "/parfums/change_one_drop_info"
         dataType: "script"
         type: "GET"
+
+  $(document).on 'click', '.show-block-info', (e) ->
+    block_item_info = $(this).parents('div.group-for-block').children('div.block-item-info')
+    if block_item_info.hasClass('show-down')
+      block_item_info.toggleClass('show-down')
+      setTimeout ->
+        block_item_info.toggle()
+      , 250
+    else
+      block_item_info.toggle()
+      setTimeout ->
+        block_item_info.toggleClass('show-down')
+      , 250

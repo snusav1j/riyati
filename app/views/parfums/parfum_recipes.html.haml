@@ -7,9 +7,9 @@
       = fa_icon :plus
 .content
   .row 
-    .col-md-3
-    .col-md-6
+    .col-md-2
+    .col-md-8
       .parfum-recipe-block.block
         - @parfum_recipes.each do |pr|
           = render partial: "parfum_recipe_item", locals: { pr: pr }
-    .col-md-3
+    .col-md-2

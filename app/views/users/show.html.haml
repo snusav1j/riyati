@@ -9,7 +9,7 @@
   -#       = fa_icon :refresh
 .row
   -# .col-md-3.user-controls-panel
-  .col-md-3
+  .col-md-2
     -# .content 
     -#   .user-settings
     -#     .user-settings-head.text-bold.text-xxl
@@ -19,7 +19,7 @@
             
     -#       .setting-item.text-xl
     -#         2
-  .col-md-6.user-info-panel
+  .col-md-8.user-info-panel
     .content
       #user_id{ style: "display: none !important;" }= @user.id
       .back-to-users
@@ -46,3 +46,4 @@
                 = fa_icon :edit
         .user-registered-info
           .text-muted= @user.registered_info
+  .col-md-2

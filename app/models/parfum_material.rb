@@ -4,6 +4,10 @@ class ParfumMaterial < ApplicationRecord
   scope :liquid_material, ->{ where("liquid_material = ?", true) }
   scope :not_liquid_material, -> { where("liquid_material = ?", false) }
 
+  def materials_used_in
+    ParfumMaterialsForRecipe.where(material_id: self.id)
+  end
+
   def get_total_spent_liquid_material_ml
     spent_material_ml = 0
     parfum_used_materials = ParfumMaterialsForRecipe.where(material_id: self.id)
@@ -56,6 +60,10 @@ class ParfumMaterial < ApplicationRecord
     else
       return '?'
     end
+  end
+
+  def get_material_expense
+
   end
 
 end
