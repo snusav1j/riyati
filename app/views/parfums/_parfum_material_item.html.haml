@@ -33,6 +33,6 @@
             - else
               .text-muted.text-small= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(pm.id)} шт.)"
         %div
-          .text-muted= "Затрачено на расходник ~ #{pm.expense} ₽" if pm.expense.present?
+          .text-muted.text-small= "Потрачено #{pm.expense} ₽" if pm.expense.present?
     - else
       .text-muted.text-small Еще нигде не использовался
