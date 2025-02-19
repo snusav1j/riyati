@@ -127,3 +127,21 @@ $ ->
       setTimeout ->
         block_item_info.toggleClass('show-down')
       , 250
+
+  $(document).on 'keyup', '.parfum_recipe_input', (e) ->
+    one_drop_info = $('.one-drop-info').attr('data-one-drop')
+    input = $(this)
+    input_label = input.parents('.multi-select-item').children('div')
+    input_label_text = input_label.attr('data-label-name')
+
+    if input.val() != ''
+      new_input_label = $('<span />')
+      new_input_label = new_input_label.append($('<span />').html(input_label_text))
+
+      ml_count = (Number(input.val()) / Number(one_drop_info)).toFixed(2)
+      new_input_label_one_drop_info = "(#{$(this).val()}мл = #{ml_count} капель)"
+      new_input_label = new_input_label.append($('<span />').addClass('text-small').addClass('text-muted').html(new_input_label_one_drop_info))
+      input_label.html(new_input_label)
+    else
+      input_label.html(input_label_text)
+

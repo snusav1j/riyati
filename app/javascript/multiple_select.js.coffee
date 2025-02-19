@@ -40,6 +40,7 @@ $ ->
     show_items_block = select.parents('div.multi-selector-block').attr('data-show-items-block') == 'true'
     form_name = select.parents('div.multi-selector-block').attr('data-form-name')
     select_name = select.parents('div.multi-selector-block').attr('data-select-name')
+    type = select.parents('div.multi-selector-block').attr('data-type')
     li = $(this)
     if not select.hasClass('clicked')
       select.addClass('clicked')
@@ -49,8 +50,8 @@ $ ->
       a = $('<a />').addClass('notShown').html('<em class="selected-item">' + li.text() + '</em><i class="remove-selected-item" ></i>').attr('data-value', li.attr('data-value')).hide().appendTo(select.children('div'))
 
       if show_items_block
-        multi_select_item_block = $('<div />').addClass('multi-select-item').attr('data-value', li.attr('data-value')).html(li.text())
-        input_for_multi_select_block = "<input name='parfum_recipe[#{select_name}][#{li.attr('data-value')}]' type='' value='' autocomplete='off'>"
+        multi_select_item_block = $('<div />').addClass('multi-select-item').attr('data-value', li.attr('data-value')).html($("<div data-label-name='#{li.text()}'/>").html(li.text()))
+        input_for_multi_select_block = "<input type='#{type}'  class='#{form_name}_input' name='#{form_name}[#{select_name}][#{li.attr('data-value')}]' type='' value='' autocomplete='off'>"
         multi_select_item_block.append(input_for_multi_select_block)
         $('.multi-select-items').append(multi_select_item_block)
 

@@ -1,8 +1,8 @@
 #dop-control-panel
   Духи
   .dop-info-controls
-    %span.text-muted.one-drop-info
-      = one_drop_ml
+    %span.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
+      = one_drop_ml_title
     #new-parfum-modal.form-button.small-button
       = fa_icon :plus
 .content

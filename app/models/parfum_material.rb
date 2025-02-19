@@ -62,8 +62,14 @@ class ParfumMaterial < ApplicationRecord
     end
   end
 
-  def get_material_expense
-
+  def one_material_cost
+    if (self.expense && self.material_count) || (self.expense && self.material_ml)
+      if self.liquid_material?
+        (self.expense / self.material_ml).round(2)
+      else
+        (self.expense / self.material_count).round(2)
+      end
+    end
   end
 
 end

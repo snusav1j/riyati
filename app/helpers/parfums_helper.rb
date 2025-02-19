@@ -12,9 +12,14 @@ module ParfumsHelper
     end
   end
 
+  def one_drop_ml_title
+    ml = ParfumDropAvgMl.first.present? ? ParfumDropAvgMl.first.ml : 0
+    "1 капля ~#{ml} мл."
+  end
+
   def one_drop_ml
     ml = ParfumDropAvgMl.first.present? ? ParfumDropAvgMl.first.ml : 0
-    "1 капля ~ #{ml} мл."
+    ml
   end
 
 end
