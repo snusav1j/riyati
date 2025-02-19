@@ -8,7 +8,7 @@ $ ->
       data:
         parfum_recipe_id: parfum_recipe_id
 
-  $(document).on 'dblclick', '#new-parfum-modal', (e) ->
+  $(document).on 'click', '#new-parfum-modal', (e) ->
     $.ajax
       url: "/parfums/new_parfum_modal"
       dataType: "script"
