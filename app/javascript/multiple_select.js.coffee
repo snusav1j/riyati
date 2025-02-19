@@ -51,7 +51,7 @@ $ ->
 
       if show_items_block
         multi_select_item_block = $('<div />').addClass('multi-select-item').attr('data-value', li.attr('data-value')).html($("<div data-label-name='#{li.text()}'/>").html(li.text()))
-        input_for_multi_select_block = "<input type='#{type}'  class='#{form_name}_input' name='#{form_name}[#{select_name}][#{li.attr('data-value')}]' type='' value='' autocomplete='off'>"
+        input_for_multi_select_block = "<input type='#{type}' step='0.01' class='#{form_name}_input' name='#{form_name}[#{select_name}][#{li.attr('data-value')}]' type='' value='' autocomplete='off'>"
         multi_select_item_block.append(input_for_multi_select_block)
         $('.multi-select-items').append(multi_select_item_block)
 
