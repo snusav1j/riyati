@@ -6,7 +6,7 @@
     
     .block-controls
       .parfum-expense
-        .text-muted= "~ #{p.recipe.get_recipe_expense} ₽"
+        .text-muted= "~ #{p.recipe.get_recipe_expense} ₽" if p.recipe.present?
       .delete-parfum-btn.delete-btn{ data: { parfum_id: p.id } }
         = fa_icon :trash
   
