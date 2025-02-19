@@ -1,4 +1,5 @@
 <% if @updated %>
   $('.one-drop-info').html('<%= one_drop_ml_title %>')
+  $('.one-drop-info').attr('data-one-drop', '<%= ParfumDropAvgMl.first.ml %>')
   toastr.success('Информация обновлена')
 <% end %>
