@@ -447,6 +447,7 @@ table thead tr th{
 }
 .block .block-item div:first-child{
   display: flex;
+  // margin-bottom: 3px;
   flex-direction: column;
 }
 .delete-btn:hover{
@@ -545,4 +546,15 @@ textarea{
 }
 .block-item-info-body div:not(:last-child){
   margin-bottom: 1.5px;
+}
+.text-hidden{
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-break: break-all;
+}
+.block-controls{
+  align-items: center !important;
 }
