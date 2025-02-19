@@ -28,6 +28,11 @@ class ParfumsController < ApplicationController
     respond_to :js
   end
 
+  def calc_ml_modal
+
+    respond_to :js
+  end
+
   def delete_parfum
     @id = params[:id]
     @parfum = Parfum.find_by(id: @id)

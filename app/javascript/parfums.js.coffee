@@ -145,3 +145,24 @@ $ ->
     else
       input_label.html(input_label_text)
 
+  $(document).on 'click', '.calc-ml', (e) ->
+    $.ajax
+      url: "/parfums/calc_ml_modal"
+      dataType: "script"
+      type: "GET"
+
+  $(document).on 'keyup', '.parfum-calc-drops', (e) ->
+    one_drop_info = Number($('.one-drop-info').attr('data-one-drop'))
+    parfum_calc_drops_input = $('.parfum-calc-drops')
+    parfum_calc_mls_input = $('.parfum-calc-mls')
+
+    mls_count = (Number(parfum_calc_drops_input.val()) * Number(one_drop_info)).toFixed(2)
+    parfum_calc_mls_input.val(mls_count)
+
+  $(document).on 'keyup', '.parfum-calc-mls', (e) ->
+    one_drop_info = Number($('.one-drop-info').attr('data-one-drop'))
+    parfum_calc_drops_input = $('.parfum-calc-drops')
+    parfum_calc_mls_input = $('.parfum-calc-mls')
+
+    drops_count = (Number(parfum_calc_mls_input.val() / Number(one_drop_info)) ).toFixed(2)
+    parfum_calc_drops_input.val(drops_count)

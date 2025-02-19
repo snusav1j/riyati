@@ -27,3 +27,20 @@
 input#parfum_drop_avg_ml_ml {
   height: 30px;
 }
+.calc-ml{
+  cursor: pointer;
+}
+.calc-ml i{
+  pointer-events: none;
+}
+.calc-body i{
+  margin-top: 20px;
+}
+.calc-body{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.calc-body input{
+  margin-top: 3px;
+}

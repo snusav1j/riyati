@@ -65,6 +65,7 @@ Rails.application.routes.draw do
       get :edit_parfum_materials_modal
       get :new_parfum_recipes_modal
       get :refresh_parfum_recipe_modal_data
+      get :calc_ml_modal
       get :edit_parfum_recipes_modal
       get :change_one_drop_info
       # post :save_parfum_material
