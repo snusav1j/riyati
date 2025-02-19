@@ -1,15 +1,12 @@
 .group-for-block{ data: { parfum_material_id: pm.id } }
   .parfum-material-item.block-item{ data: { parfum_material_id: pm.id } }
     .parfum-material-info
-      .text-hidden
-        %span
-          %span= pm.material_name
-          %span.text-muted.text-small= "#{pm.expense} ₽" if pm.expense.present?
+      %span{ style: 'margin-bottom: 2px;' }
+        %span= pm.material_name
+        %span.text-muted.text-small= "#{pm.expense} ₽" if pm.expense.present?
       .text-muted
-        
         - if pm.liquid_material?
           - material_ml_style = pm.liquid_material_mls_left > 0 ? '' : 'text-danger'
-          
           %span{ class: material_ml_style }= "#{pm.liquid_material_mls_left} мл."
           %span.text-warning.text-small= "(- #{pm.get_total_spent_liquid_material_ml} мл.)" if pm.get_total_spent_liquid_material_ml > 0
         - else
