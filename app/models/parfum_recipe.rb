@@ -35,14 +35,14 @@ class ParfumRecipe < ApplicationRecord
         material_expense = material.expense.present? ? material.expense : 0
         if material_expense > 0 && material_ml > 0
           expense_for_one = material_expense / material_ml
-          expense += expense_for_one * mfr.spent_material_ml
+          expense += expense_for_one * mfr.spent_material_ml if mfr.spent_material_ml.present?
         end
       else
         material_count = material.material_count.present? ? material.material_count : 0
         material_expense = material.expense.present? ? material.expense : 0
         if material_expense > 0 && material_count > 0
           expense_for_one = material_expense / material_count
-          expense += expense_for_one * mfr.spent_material_count
+          expense += expense_for_one * mfr.spent_material_count if mfr.spent_material_count.present?
         end
       end
     end

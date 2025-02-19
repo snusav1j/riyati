@@ -5,7 +5,8 @@
       - if ParfumMaterial.all.present?
         = f.label :parfum_material_id, "Расходники (указывать в мл./шт.)"
         .multi-selector-block{ data: { form_name: 'parfum_recipe', show_items_block: 'true', select_name: 'drops_count' } }
-          = f.select :parfum_material_id, options_for_select(ParfumMaterial.get_materials.map{|r| [r.material_name, r.id]}, parfum_materials_for_recipe_list), multiple: true, id: 'parfum-recipe-materials', required: true
+          = f.select :parfum_material_id, options_for_select(ParfumMaterial.all.map{|r| [r.material_name, r.id]}, parfum_materials_for_recipe_list), multiple: true, id: 'parfum-recipe-materials', required: true
+          -# = f.select :parfum_material_id, options_for_select(ParfumMaterial.get_materials.map{|r| [r.material_name, r.id]}, parfum_materials_for_recipe_list), multiple: true, id: 'parfum-recipe-materials', required: true
       - else
         .no-data-block.no-data-parfum-recuipe-block
           .success-btn

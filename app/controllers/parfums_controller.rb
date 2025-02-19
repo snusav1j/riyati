@@ -3,10 +3,10 @@ class ParfumsController < ApplicationController
   before_action :create_parfum_drop_avg
 
   def index
-    # Parfum.delete_all
-    # ParfumMaterial.delete_all
-    # ParfumRecipe.delete_all
-    # ParfumMaterialsForRecipe.delete_all
+    Parfum.delete_all
+    ParfumMaterial.delete_all
+    ParfumRecipe.delete_all
+    ParfumMaterialsForRecipe.delete_all
     @parfums = Parfum.all
   end
 
