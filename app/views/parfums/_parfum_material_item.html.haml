@@ -32,7 +32,10 @@
               .text-muted.text-small= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(pm.id)} мл.)"
             - else
               .text-muted.text-small= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(pm.id)} шт.)"
-        .text-muted.text-small= "#{pm.one_material_cost} ₽"
+        - if pm.liquid_material?
+          .text-muted.text-small= "1 мл. ~#{pm.one_material_cost} ₽"
+        - else
+          .text-muted.text-small= "1 шт. ~#{pm.one_material_cost} ₽"
     - else
       .block-item-info-body
         .text-muted.text-small Еще нигде не использовался
