@@ -1,8 +1,6 @@
 class ParfumsController < ApplicationController
   before_action :ensure_current_user
   before_action :create_parfum_drop_avg
-  include ApplicationHelper
-  require 'rails_charts'
 
   def index
     # Parfum.delete_all
@@ -10,7 +8,6 @@ class ParfumsController < ApplicationController
     # ParfumRecipe.delete_all
     # ParfumMaterialsForRecipe.delete_all
     @parfums = Parfum.all
-    @as = get_donut_chart(ParfumMaterial.group(:material_name))
   end
 
   def refresh_parfum_recipe_modal_data
