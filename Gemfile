@@ -28,6 +28,7 @@ gem 'toastr-rails'
 # gem 'net-http'
 # gem 'uri'
 gem "rails_charts"
+gem "chartkick"
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'bcrypt', '~> 3.1', '>= 3.1.20'
 gem 'coffee-rails', '~> 5.0'
