@@ -5,8 +5,8 @@
       = fa_icon :plus
 .content
   .row
-    .col-md-2
-    .col-md-8
+    .col-md-3
+    .col-md-6
       .users-block
         - @users.each do |user|
           = link_to user_path(user) do
@@ -20,4 +20,5 @@
 
               .user-balance 
                 = user.get_balance
-    .col-md-2
+    .col-md-3
+      = get_donut_chart(User.group(:firstname), 100, 100)

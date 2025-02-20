@@ -38,4 +38,61 @@ module ApplicationHelper
     date = date.to_datetime + 3.hours
     date.strftime("%d.%m.%Y %H:%M") if date.present?
   end
+
+  def get_donut_chart(model_group, width, height)
+    donut_chart model_group.count,
+    class: 'box',
+    height: "#{height}px",
+    width: "#{width}px",
+    options: {
+      legend: {
+        bottom: '0'
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 0,
+          shadowOffsetX: 0
+        }
+      }
+    }
+  end
+  def get_donut_chart(model_group, width, height)
+    donut_chart model_group.count,
+    class: 'box',
+    renderer: 'svg',
+    height: "#{height}%",
+    width: "#{width}%",
+    
+    options: {
+      series: {
+        type: 'pie',
+        radius: ['40%', '90%'],
+        avoidLabelOverlap: false,
+        padAngle: 5,
+        itemStyle: {
+          borderRadius: 2
+        },
+        label: {
+          show: false,
+          position: 'center'
+        },
+        labelLine: {
+          show: false
+        }
+      },
+      tooltip: {
+        trigger: 'item'
+      },
+      labelLine: {
+        show: false
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 0,
+          shadowOffsetX: 0
+        }
+      }
+    }
+  end
+
 end
