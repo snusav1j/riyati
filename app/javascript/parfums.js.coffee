@@ -126,7 +126,7 @@ $ ->
       block_item_info.toggle()
       setTimeout ->
         block_item_info.toggleClass('show-down')
-      , 250
+      , 100
 
   $(document).on 'keyup', '.parfum_recipe_input', (e) ->
     one_drop_info = $('.one-drop-info').attr('data-one-drop')

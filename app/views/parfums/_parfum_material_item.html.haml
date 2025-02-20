@@ -15,7 +15,7 @@
           %span.text-warning.text-small= "(- #{pm.get_total_spent_not_liquid_material_count} шт.)" if pm.get_total_spent_not_liquid_material_count > 0
 
     .block-controls
-      .show-parfum-material-btn.show-block-info.primary-btn{ data: { parfum_material_id: pm.id } }
+      .show-parfum-material-btn.show-block-info.default-btn{ data: { parfum_material_id: pm.id } }
         = fa_icon :info
       .delete-parfum-material-btn.delete-btn{ data: { parfum_material_id: pm.id } }
         = fa_icon :trash
