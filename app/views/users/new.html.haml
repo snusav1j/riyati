@@ -1,0 +1,10 @@
+.content
+  .row
+    .col-md-2
+    .col-md-8
+      .edit-user-title
+        = link_to users_path do
+          %span.text-muted.text-xxl= fa_icon "arrow-left"
+        %span.text-xxl.text-bold Создать пользователя
+      = render 'form'
+    .col-md-2

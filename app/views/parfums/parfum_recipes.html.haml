@@ -1,0 +1,15 @@
+#dop-control-panel
+  Рецепты
+  .dop-info-controls
+    %span.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
+      = one_drop_ml_title
+    #new-parfum-recipe-modal.form-button.small-button
+      = fa_icon :plus
+.content
+  .row 
+    .col-md-2
+    .col-md-8
+      .parfum-recipe-block.block
+        - @parfum_recipes.each do |pr|
+          = render partial: "parfum_recipe_item", locals: { pr: pr }
+    .col-md-2

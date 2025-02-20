@@ -1,0 +1,14 @@
+.form.login-form
+  .form-head
+    %h1.text-xxl.text-bold.text-center.login-title  Вход
+  .form-body
+    = form_for @user, url: sessions_path, html: { id: "login-form" } do |f|
+      .field
+        = f.label "Логин"
+        = f.text_field :login, required: true, class: "form-control", autocomplete: "new-password"
+      .field
+        = f.label "Пароль"
+        = f.text_field :password, required: true, class: "form-control", type: :password, autocomplete: "new-password"
+      %button.text-xl.text-bold.login-button{ type: :submit, form: 'login-form', style: "margin-top: 10px; width: 100%; font-size: 14px;" } Войти
+
+

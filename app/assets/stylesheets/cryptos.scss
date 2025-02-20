@@ -1,0 +1,108 @@
+.coin-icon img{
+  width: 100%;
+  border-radius: 50%;
+}
+.dop-coin-info-item{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.coin-icon{
+  width: 30px;
+  height: 30px;
+}
+.coins-block .coin-block:first-child{
+  margin-top: unset !important;
+}
+.coin-block:first-child{
+  margin-top: 20px;
+}
+.coin-block:not(:last-child){
+  margin-bottom: 10px;
+}
+.coin-block:hover{
+  background: var(--block-hover);
+  border: 1px solid var(--block-border-hover);
+  box-shadow: var(--block-shadow);
+}
+.main-prices{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.coin-block {
+  cursor: pointer;
+  transition: .3s ease;
+  height: 50px;
+  display: flex;
+  color: var(--main-text-color);
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: var(--tertiary-color);
+  border: 1px solid var(--border-color);
+  justify-content: space-between;
+}
+.coin-block .coin-info-block{
+  height: 50px;
+  display: flex;
+  color: var(--main-text-color);
+  align-items: center;
+  gap: 10px;
+}
+.selected-coin-info{
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+.selected-coin-desc{
+  width: 100%;
+  position: relative;
+  // margin-bottom: 20px;
+}
+.selected-coin-picture img{
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+.coin-block-controls{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.coins-block{
+  background: #222431 !important;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+}
+.coins-block .loader{
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 24px;
+}
+.selected-coin-name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.selected-coin-price{
+
+  margin-top: 40px;
+}
+.selected-coin-price-content{
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.selected-coin-info a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

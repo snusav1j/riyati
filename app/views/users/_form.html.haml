@@ -1,0 +1,34 @@
+-# - user = params[:id].present? ? User.find_by_id(params[:id]) : User.new()
+.user-form-block
+  = form_for @user do |f|
+    .row
+      .col-md-6
+        = f.label "Имя"
+        = f.text_field :firstname, placeholder: "Имя", required: true, autocomplete: "new-password"
+      .col-md-6
+        = f.label "Фамилия"
+        = f.text_field :lastname, placeholder: "Фамилия", required: false, autocomplete: "new-password"
+    .row
+      .col-md-12
+        = f.label "Почта"
+        = f.text_field :email, placeholder: "Почта", type: :email, required: false, autocomplete: "new-password"
+    .row
+      .col-md-12
+        = f.label "Логин"
+        = f.text_field :login, placeholder: "Логин", required: true, autocomplete: "new-password"
+    .row
+      .col-md-12
+        = f.label "Пароль"
+        = f.number_field :password, placeholder: "Пароль", type: :password, required: true, autocomplete: "new-password"
+    - if (current_user.ceo? || current_user.director?) && !(@user.ceo? && current_user.director?)
+      .row
+        .col-md-12
+          = f.label "Роль"
+          = f.select :role, options_for_select(user_roles_list.map{|r| [t("role_name_#{r}"), r]}, @user.role)
+      -# .row
+      -#   .col-md-12
+      -#     = f.label "Баланс"
+      -#     = f.text_field :balance, placeholder: "Баланс", autocomplete: "new-password"
+    .row
+      .col-md-12
+        = f.submit 'Сохранить', class: "save-btn primary-btn"

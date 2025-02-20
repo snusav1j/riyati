@@ -1,0 +1,29 @@
+
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+
+ *= require cryptos
+ *= require general
+ *= require panel
+ *= require dop_panel
+ *= require sessions
+ *= require users
+ *= require font-awesome
+ *= require dropdown
+ *= require modal
+ *= require sidebar
+ *= require multiple_select
+ *= require adaptive
+ *= require parfums
+ */
+ 
+ @import "font-awesome";
+ @import 'toastr';
+//  @import 'bootstrap';

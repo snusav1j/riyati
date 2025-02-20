@@ -1,0 +1,4 @@
+<% if @deleted %>
+  toastr.error('Духи удалены.')
+  $(".group-for-block[data-parfum-id='<%= @parfum.id %>']").remove();
+<% end %>

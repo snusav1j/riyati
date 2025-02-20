@@ -1,0 +1,46 @@
+.multi-select-item input{
+  margin-top: 5px;
+}
+.multi-select-item:first-child{
+  margin-top: 5px;
+}
+.multi-select-item:not(:last-child){
+  margin-bottom: 15px;
+}
+.one-drop-info{
+  cursor: pointer;
+  margin-right: 10px;
+}
+.change-drop-info-form-controls input {
+  border-radius: 5px 0 0 5px;
+  width: 65px !important;
+  text-align: center !important;
+  padding: 10px;
+}
+.change-drop-info-form-controls button{
+  border-radius: 0 5px 5px 0;
+}
+.change-drop-info-form-controls{
+  display: flex;
+
+}
+input#parfum_drop_avg_ml_ml {
+  height: 30px;
+}
+.calc-ml{
+  cursor: pointer;
+}
+.calc-ml i{
+  pointer-events: none;
+}
+.calc-body i{
+  margin-top: 20px;
+}
+.calc-body{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.calc-body input{
+  margin-top: 3px;
+}

@@ -1,0 +1,5 @@
+.donut-charts-block-item
+  -# .donut-chart-header
+    -# = "Материалы для духов (#{ParfumMaterial.all.length})"
+  .donut-chart-body
+    = get_donut_chart(chart_data)

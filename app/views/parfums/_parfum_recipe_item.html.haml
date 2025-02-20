@@ -1,0 +1,25 @@
+.group-for-block{ data: { parfum_recipe_id: pr.id } }
+  .parfum-recipe-item.block-item{ data: { parfum_recipe_id: pr.id } }
+    .parfum-recipe-info
+      %div= "Рецепт ##{pr.id}"
+      %div.text-muted= "#{pr.ml} мл." if pr.ml.present?
+    
+    .block-controls
+      .parfum-recipe-expense
+        
+      .show-parfum-recipe-btn.show-block-info.default-btn{ data: { parfum_recipe_id: pr.id } }
+        = fa_icon :info
+      .delete-parfum-recipe-btn.delete-btn{ data: { parfum_recipe_id: pr.id } }
+        = fa_icon :trash
+  .block-item-info
+    .block-item-info-header Расходники:
+    .block-item-info-body
+      %div
+        - pr.parfum_materials_for_recipe.each do |pmfr|
+          - if pmfr.material.liquid_material?
+            .text-muted.text-small= "#{pmfr.material.material_name}: #{pmfr.spent_material_ml} мл."
+          - else
+            .text-muted.text-small= "#{pmfr.material.material_name}: #{pmfr.spent_material_count} шт."
+            
+      %div
+        .text-muted.text-small= "~#{pr.get_recipe_expense} ₽"

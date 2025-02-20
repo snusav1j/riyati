@@ -1,0 +1,7 @@
+<% if @updated %>
+  $(".group-for-block[data-parfum-material-id='<%= @parfum_material.id %>']").replaceWith("<%= j render partial: '/parfums/parfum_material_item', locals: { pm: @parfum_material } %>");
+  toastr.success('Расходник обновлен.')
+  $('#parfum-material-modal').modal('hide');
+  $('.donut-chart-body').html("");
+  $('.donut-chart-body').html("<%= j render partial: 'charts/donut_chart', locals: { chart_data: ParfumMaterial.group(:material_name) } %>");
+<% end %>

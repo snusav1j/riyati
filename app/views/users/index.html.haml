@@ -1,0 +1,23 @@
+#dop-control-panel
+  Пользователи
+  = link_to new_user_path do
+    .form-button.small-button{ style: "margin-left: 15px;" }
+      = fa_icon :plus
+.content
+  .row
+    .col-md-2
+    .col-md-8
+      .users-block
+        - @users.each do |user|
+          = link_to user_path(user) do
+            .user
+              %div{ style: "display: flex; align-items: center; gap: 10px;" }
+                .user-avatar
+                  = user.avatar
+                .user-fullname
+                  = user.fullname
+                  .text-muted.text-small= user.profile_id
+
+              .user-balance 
+                = user.get_balance
+    .col-md-2

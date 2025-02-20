@@ -1,0 +1,19 @@
+.modal.fade.in#parfum-recipe-modal{:tabindex => "-1"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %h5.modal-title
+          = title
+          .group-row
+            .calc-ml= fa_icon :calculator
+            %span.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }= one_drop_ml_title
+        %button.btn-without-background.small-button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+          = fa_icon :times
+      .modal-body
+        #parfum_recipe_modal_body= render partial: 'parfum_recipe_modal_body', locals: { url: url, parfum_recipe: parfum_recipe, parfum_materials_for_recipe_list: parfum_materials_for_recipe_list }
+      .modal-footer 
+        %button{ "data-bs-dismiss" => "modal", class: 'save-btn default-btn' } Закрыть
+        .grouped-footer-block
+          - if parfum_recipe.id.present?
+            %button{ type: 'buton', class: 'create-parfum-btn success-btn' } Создать духи
+          %button{ type: 'submit', form: 'parfum-recipe', class: 'save-btn primary-btn' } Сохранить

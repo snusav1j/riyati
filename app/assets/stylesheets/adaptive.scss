@@ -1,0 +1,21 @@
+@media screen and (max-width: 991px){
+  .hide-on-mobile{
+    display: none !important;
+  }
+}
+@media screen and (max-width: 1280px){
+  .hide-on-laptop{
+    display: none !important;
+  }
+}
+#show-sidebar{
+  display: none;
+}
+@media screen and (max-width: 991px){
+  .nav-panel a{
+    display: none !important;
+  }
+  #show-sidebar{
+    display: block !important;
+  }
+}

@@ -1,0 +1,5 @@
+<% if @updated %>
+  $(".group-for-block[data-parfum-id='<%= @parfum.id %>']").replaceWith("<%= j render partial: '/parfums/parfum_item', locals: { p: @parfum } %>");
+  toastr.success('Рецепт духов обновлен.')
+  $('#parfum-modal').modal('hide');
+<% end %>

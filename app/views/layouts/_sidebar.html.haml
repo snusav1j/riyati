@@ -1,0 +1,54 @@
+.page-wrapper
+  %nav#sidebar.sidebar-wrapper
+    .sidebar-content
+      .sidebar-brand
+        = link_to root_path do
+          %span.panel-logo RIYATI
+        #close-sidebar
+          = fa_icon :times
+
+      .sidebar-header
+        = link_to user_path(current_user) do
+          .user-avatar
+            = current_user.avatar
+          .user-info
+            %span.user-name
+              %strong= current_user.fullname
+            %span.user-role= t("role_name_#{current_user.role}")
+
+      .sidebar-menu
+        %ul
+          %li
+            = link_to cryptos_path do
+              Крипта
+          %li.sidebar-dropdown
+            %a{:href => "#"}
+              .submenu-title
+                Парфюмерия
+                %span.submenu-btn= fa_icon 'angle-down'
+            .sidebar-submenu
+              %ul
+                %li
+                  = link_to parfums_path do
+                    Духи
+                %li
+                  = link_to parfum_recipes_parfums_path do
+                    Рецепты
+                %li
+                  = link_to parfum_materials_parfums_path do
+                    Расходники
+          - if current_user.director? || current_user.ceo?
+            %li
+              = link_to users_path do
+                Пользователи
+    .sidebar-footer
+      %a{:href => "#"}
+        %i.fa.fa-bell
+        %span.badge.badge-pill.badge-warning.notification
+      %a{:href => "#"}
+        %i.fa.fa-envelope
+        %span.badge.badge-pill.badge-success.notification
+      = link_to edit_user_path(current_user) do 
+        %i.fa.fa-cog
+      = link_to logout_sessions_path do
+        = fa_icon "sign-out"

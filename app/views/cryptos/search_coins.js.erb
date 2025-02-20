@@ -1,0 +1,4 @@
+$('.currencies-list').html('<%= j render partial: "found_coins", locals: { coins: @coins } %>')
+$('#coin-search-btn .btn-icon').show()
+$('#coin-search-btn .loader').hide()
+$('#coin-search-btn button').prop('disabled', false)

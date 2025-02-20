@@ -1,0 +1,28 @@
+#dop-control-panel{
+  height: 50px;
+  // background: #292b30;
+  background: var(--light-main-color);
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: var(--main-text-color);
+}
+
+
+.dop-info-crypto .control-btns{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dop-info-crypto{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.dop-info-controls{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

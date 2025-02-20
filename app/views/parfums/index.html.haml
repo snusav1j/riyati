@@ -1,0 +1,15 @@
+#dop-control-panel
+  Духи
+  .dop-info-controls
+    %span.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
+      = one_drop_ml_title
+    #new-parfum-modal.form-button.small-button
+      = fa_icon :plus
+.content
+  .row 
+    .col-md-2
+    .col-md-8
+      .parfum-block.block
+        - @parfums.each do |p|
+          = render partial: "parfum_item", locals: { p: p }
+    .col-md-2

@@ -1,0 +1,13 @@
+{
+  "name": "RIYATI APP",
+  "short_name": "RIYATI",
+  "icons": [{
+        "src": "dashboard.png",
+        "sizes": "128x128",
+        "type": "image/png"
+  }],
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "start_url": "/?standalone=true"
+}

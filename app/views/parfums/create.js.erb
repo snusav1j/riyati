@@ -1,0 +1,5 @@
+<% if @created %>
+  $('.parfum-block.block').append("<%= j render partial: '/parfums/parfum_item', locals: { p: @parfum } %>");
+  toastr.success('Духи добавлены.')
+  $('#parfum-modal').modal('hide');
+<% end %>

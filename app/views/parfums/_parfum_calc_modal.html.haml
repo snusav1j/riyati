@@ -1,0 +1,19 @@
+.modal.fade.in#parfum-calc-modal{:tabindex => "-1"}
+  .modal-dialog.modal-m
+    .modal-content
+      .modal-header
+        %h5.modal-title
+          = title
+        %button.btn-without-background.small-button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+          = fa_icon :times
+      .modal-body
+        .calc-body
+          %div
+            %span Капли
+            %input{ type: :number, class: 'parfum-calc-drops' }
+          .text-muted= fa_icon :exchange
+          %div
+            %span Миллилитры
+            %input{ type: :number, class: 'parfum-calc-mls' }
+      .modal-footer 
+        %button{ "data-bs-dismiss" => "modal", class: 'save-btn default-btn' } Закрыть
