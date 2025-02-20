@@ -23,6 +23,9 @@ ul.nav-list.hidden.visible-md{
 ul.drop-menu li a{
   padding: 15px;
 }
+ul.drop-menu{
+  z-index: 1111;
+}
 /* Dropdown */
 .nav-list > li.dropdown ul.drop-menu {
   top: 60px;

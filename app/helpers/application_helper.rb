@@ -1,4 +1,6 @@
 module ApplicationHelper
+  require 'rails_charts'
+  
   def pretty_date(date)
 		Russian::strftime(date, "%d %B %Y") if date.present?
   end
@@ -41,15 +43,29 @@ module ApplicationHelper
 
   def get_donut_chart(model_group)
     donut_chart model_group.count,
-    class: 'box',
-    renderer: 'svg',
-    height: "100%",
-    width: "100%",
+    class: 'chart-box',
+    # id: 'chart-container',
+    renderer: 'canvas',
+    height: "250px",
+    width: "250px",
     
     options: {
+      # legend: {
+      #   orient: 'vertical',
+      #   left: 'left'
+      # },
       series: {
         type: 'pie',
-        radius: ['40%', '90%'],
+        radius: '55%',
+        roseType: 'radius',
+        center: ['50%', '50%'],
+        # animationType: 'scale',
+        # animationEasing: 'elasticOut',
+        # animationDelay: 500,
+        height: "100%",
+        width: "100%",
+        type: 'pie',
+        radius: ['45%', '95%'],
         avoidLabelOverlap: false,
         padAngle: 5,
         itemStyle: {
@@ -59,13 +75,34 @@ module ApplicationHelper
           show: false,
           position: 'center'
         },
+        # itemStyle: {
+        #   color: '#c23531',
+        #   shadowColor: 'rgba(0, 0, 0, 0.5)'
+        # },
+        # labelLine: {
+        #   show: true
+        # },
         labelLine: {
-          show: false
-        }
+          lineStyle: {
+            # color: 'rgba(255, 255, 255, 0.3)'
+          },
+          smooth: 0.2,
+          length: 10,
+          length2: 20
+        },
       },
       tooltip: {
         trigger: 'item'
       },
+      # visualMap: {
+      #   show: false,
+      #   min: 80,
+      #   max: 600,
+      #   inRange: {
+      #     colorLightness: [0, 1]
+      #   }
+      # },
+      
       labelLine: {
         show: false
       },

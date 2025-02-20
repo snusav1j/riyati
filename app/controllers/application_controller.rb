@@ -1,10 +1,13 @@
 class ApplicationController < ActionController::Base
-  allow_browser versions: :modern
+  include ApplicationHelper
+  require 'rails_charts'
+
+  # allow_browser versions: :modern
   helper_method :current_user
   before_action :set_global_vars
   before_action :set_cache_headers
   before_action :create_super_user
-  
+
   def create_super_user
     user_present = User.find_by(login: "riyati")
     if !user_present.present?

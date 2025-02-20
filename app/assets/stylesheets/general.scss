@@ -563,3 +563,32 @@ textarea{
 .block-controls{
   align-items: center !important;
 }
+.chart-box{
+  // margin: 0 auto;
+}
+.donut-charts-block .chart-header{
+  font-weight: 700;
+  font-size: 15px
+}
+.donut-charts-block-item{
+  background: var(--tertiary-color);
+  // background: var(--light-main-color);
+  padding: 15px;
+  border-radius:  5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  gap: 10px;
+  width: 100%;
+}
+.donut-charts-block{
+  display: flex;
+  gap: 15px;
+}
+.extra-info-block{
+  border-radius:  5px;
+  background: var(--tertiary-color);
+  padding: 15px;
+  margin-bottom: 10px;
+}
