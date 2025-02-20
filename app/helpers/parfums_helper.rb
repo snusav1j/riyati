@@ -22,4 +22,25 @@ module ParfumsHelper
     ml
   end
 
+  def materials_list_for_select(parfum_recipe)
+    result = []
+    # ParfumMaterialsForRecipe.where(parfum_recipe_id: parfum_recipe.id).each do |pmfr|
+    #   if pmfr.material.liquid_material?
+    #     result << [pmfr.material.material_name, pmfr.material.id] if pmfr.material.liquid_material_mls_left > 0
+    #   else
+    #     result << [pmfr.material.material_name, pmfr.material.id] if pmfr.material.not_liquid_material_count_left > 0
+    #   end
+    # end
+    ParfumMaterial.all.each do |material|
+      material_for_recipe_present = ParfumMaterialsForRecipe.where(parfum_recipe_id: parfum_recipe.id).find_by(material_id: material.id)
+      if material.liquid_material?
+        result << [material.material_name, material.id] if material.liquid_material_mls_left > 0 || material_for_recipe_present.present?
+      else
+        result << [material.material_name, material.id] if material.not_liquid_material_count_left > 0 || material_for_recipe_present.present?
+      end
+    end
+
+    result
+  end
+
 end

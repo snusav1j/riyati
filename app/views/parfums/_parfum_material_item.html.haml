@@ -11,13 +11,10 @@
           %span.text-warning.text-small= "(- #{pm.get_total_spent_liquid_material_ml} мл.)" if pm.get_total_spent_liquid_material_ml > 0
         - else
           - material_count_style = pm.not_liquid_material_count_left > 0 ? '' : 'text-danger'
-
           %span{ class: material_count_style }= "#{pm.not_liquid_material_count_left} шт."
           %span.text-warning.text-small= "(- #{pm.get_total_spent_not_liquid_material_count} шт.)" if pm.get_total_spent_not_liquid_material_count > 0
 
     .block-controls
-      -# .parfum-material-expense
-        
       .show-parfum-material-btn.show-block-info.primary-btn{ data: { parfum_material_id: pm.id } }
         = fa_icon :info
       .delete-parfum-material-btn.delete-btn{ data: { parfum_material_id: pm.id } }
