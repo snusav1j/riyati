@@ -14,8 +14,8 @@
   --hover-primary: #5b9aeccc;
   --danger: #d33e4a;
   --hover-danger: #c23a45;
-  --default: #56595c;
-  --hover-default: #5f6061;
+  --default: #4b4d61;
+  --hover-default: #595a6b;
   --success: #17a050;
   --hover-success: #1e9750;
   --warnig: #e0740e;
@@ -516,7 +516,7 @@ textarea{
   padding: 10px;
   margin: 0 5px;
   border-radius: 0 0 10px 10px;
-  border-top: 1px solid var(--border-color);
+  // border-top: 1px solid var(--border-color);
   transform: translateY(-30px);
   transition: .4s ease;
   display: none;
