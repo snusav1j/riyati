@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
-  require 'rails_charts'
 
   # allow_browser versions: :modern
   helper_method :current_user
@@ -14,7 +13,7 @@ class ApplicationController < ActionController::Base
       User.create(login: 'riyati', password: 555, role: 'ceo', firstname: 'riyati')
     end
   end
-
+  
   def set_global_vars
     @cur_url = request.env['REQUEST_URI']
 		@ref_url = request.env['HTTP_REFERER']

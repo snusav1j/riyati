@@ -1,6 +1,4 @@
 module ApplicationHelper
-  require 'rails_charts'
-  
   def pretty_date(date)
 		Russian::strftime(date, "%d %B %Y") if date.present?
   end
@@ -39,6 +37,14 @@ module ApplicationHelper
   def small_datetime(date)
     date = date.to_datetime + 3.hours
     date.strftime("%d.%m.%Y %H:%M") if date.present?
+  end
+
+  def total_materials_expense
+    expense = 0
+    ParfumMaterial.all.each do |material|
+      expense += material.expense if material.expense.present?
+    end
+    expense
   end
 
   def get_donut_chart(model_group)
@@ -114,4 +120,8 @@ module ApplicationHelper
       }
     }
   end
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 0b7e054e77da9c1ffddd6ebe86b57a386d417fcd
 end
