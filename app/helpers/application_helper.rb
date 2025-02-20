@@ -39,30 +39,13 @@ module ApplicationHelper
     date.strftime("%d.%m.%Y %H:%M") if date.present?
   end
 
-  def get_donut_chart(model_group, width, height)
-    donut_chart model_group.count,
-    class: 'box',
-    height: "#{height}px",
-    width: "#{width}px",
-    options: {
-      legend: {
-        bottom: '0'
-      },
-      emphasis: {
-        itemStyle: {
-          shadowBlur: 0,
-          shadowOffsetX: 0
-        }
-      }
-    }
-  end
-
   def get_donut_chart(model_group)
     donut_chart model_group.count,
     class: 'box',
     renderer: 'svg',
     height: "100%",
     width: "100%",
+    
     options: {
       series: {
         type: 'pie',
@@ -94,5 +77,4 @@ module ApplicationHelper
       }
     }
   end
-
 end
