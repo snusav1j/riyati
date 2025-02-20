@@ -56,13 +56,13 @@ module ApplicationHelper
       }
     }
   end
-  def get_donut_chart(model_group, width, height)
+
+  def get_donut_chart(model_group)
     donut_chart model_group.count,
     class: 'box',
     renderer: 'svg',
-    height: "#{height}%",
-    width: "#{width}%",
-    
+    height: "100%",
+    width: "100%",
     options: {
       series: {
         type: 'pie',

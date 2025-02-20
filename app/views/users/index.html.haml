@@ -21,4 +21,5 @@
               .user-balance 
                 = user.get_balance
     .col-md-3
-      = get_donut_chart(User.group(:firstname), 100, 100)
+
+      =  get_donut_chart(User.group(:firstname))

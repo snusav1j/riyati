@@ -26,8 +26,8 @@ gem 'sprockets-rails', '~> 3.5', '>= 3.5.2'
 gem 'font-awesome-rails'
 gem 'toastr-rails'
 # gem 'net-http'
-gem "rails_charts"
 # gem 'uri'
+gem "rails_charts"
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'bcrypt', '~> 3.1', '>= 3.1.20'
 gem 'coffee-rails', '~> 5.0'
