@@ -3,13 +3,23 @@
   .dop-info-controls
     %span.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
       = one_drop_ml_title
+    #refresh-data.form-button.small-button
+      = link_to parfum_recipes_parfums_path do
+        = fa_icon :refresh
     #new-parfum-recipe-modal.form-button.small-button
       = fa_icon :plus
 .content
   .row 
-    .col-md-2
     .col-md-8
       .parfum-recipe-block.block
         - @parfum_recipes.each do |pr|
           = render partial: "parfum_recipe_item", locals: { pr: pr }
-    .col-md-2
+    - if ParfumRecipe.all.present?
+      .col-md-4.hide-on-mobile
+        .row
+          .col-md-12
+            .extra-info-block
+              = "Потрачено на рецепты: #{total_recipe_materials_expense} ₽"
+        .row
+          .col-md-12
+            = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterialsForRecipe.group(:id), title: nil }

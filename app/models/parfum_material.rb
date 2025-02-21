@@ -1,5 +1,5 @@
 class ParfumMaterial < ApplicationRecord
-  # belongs_to :parfum_recipe
+  # has_many :parfum_materials_for_recipes
   
   scope :liquid_material, ->{ where("liquid_material = ?", true) }
   scope :not_liquid_material, -> { where("liquid_material = ?", false) }

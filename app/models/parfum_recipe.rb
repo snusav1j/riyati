@@ -1,5 +1,5 @@
 class ParfumRecipe < ApplicationRecord
-  
+
   def parfum_materials_for_recipe
     ParfumMaterialsForRecipe.where(parfum_recipe_id: self.id)
   end
@@ -25,6 +25,7 @@ class ParfumRecipe < ApplicationRecord
     
   end
   
+
   def get_recipe_expense
     expense = 0
     materials_for_recipe = ParfumRecipe.find_by(id: self.id).parfum_materials_for_recipe
