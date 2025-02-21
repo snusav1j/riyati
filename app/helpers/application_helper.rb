@@ -48,6 +48,14 @@ module ApplicationHelper
     expense
   end
 
+  def total_recipe_materials_expense
+    expense = 0
+    ParfumRecipe.all.each do |recipe|
+      expense += recipe.get_recipe_expense
+    end
+    expense
+  end
+
   def get_donut_chart(model_group)
     donut_chart model_group.count,
     class: 'chart-box',

@@ -591,4 +591,7 @@ textarea{
   background: var(--tertiary-color);
   padding: 15px;
   margin-bottom: 10px;
+  height: 60px;
+  display: flex;
+  align-items: center;
 }

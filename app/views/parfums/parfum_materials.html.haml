@@ -4,7 +4,7 @@
     %span.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
       = one_drop_ml_title
     #refresh-data.form-button.small-button
-      = link_to :back do
+      = link_to parfum_materials_parfums_path do
         = fa_icon :refresh
     #new-parfum-material-modal.form-button.small-button
       = fa_icon :plus
@@ -14,11 +14,12 @@
       .parfum-material-block.block
         - @parfum_materials.each do |pm|
           = render partial: "parfum_material_item", locals: { pm: pm }
-    .col-md-4.hide-on-mobile
-      .row
-        .col-md-12
-          .extra-info-block
-            = "Всего потрачено: #{total_materials_expense}"
-      .row
-        .col-md-12
-          = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterial.group(:material_name), title: nil }
+    - if ParfumMaterial.all.present?
+      .col-md-4.hide-on-mobile
+        .row
+          .col-md-12
+            .extra-info-block
+              = "Расходников на сумму: #{total_materials_expense} ₽"
+        .row
+          .col-md-12
+            = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterial.group(:material_name), title: nil }
