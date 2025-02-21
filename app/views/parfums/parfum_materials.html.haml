@@ -29,7 +29,7 @@
         .row
           .col-md-12
             .extra-info-block
-              = "Расходников на сумму: #{total_materials_expense} ₽ 1"
+              = "Расходников на сумму: #{total_materials_expense} ₽"
         .row
           .col-md-12
             = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterial.group(:material_name), title: nil }
