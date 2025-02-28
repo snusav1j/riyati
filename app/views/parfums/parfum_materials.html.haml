@@ -10,16 +10,18 @@
       = fa_icon :plus
 .content
   .row 
+    .col-md-1
     .col-md-8
       .parfum-material-block.block
         - @parfum_materials.each do |pm|
           = render partial: "parfum_material_item", locals: { pm: pm }
     - if ParfumMaterial.all.present?
-      .col-md-4.hide-on-mobile
+      .col-md-2.hide-on-mobile
         .row
           .col-md-12
-            .extra-info-block
+            .extra-info-block.text-center
               = "Расходников на сумму: #{total_materials_expense} ₽"
-        .row
-          .col-md-12
-            = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterial.group(:material_name), title: nil }
+      .col-md-1.hide-on-mobile
+        -# .row
+        -#   .col-md-12
+        -#     = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterial.group(:material_name), title: nil }

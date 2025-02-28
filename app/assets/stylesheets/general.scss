@@ -234,6 +234,9 @@ select:-webkit-autofill:focus {
 .text-center{
   text-align: center;
 }
+.extra-info-block{
+  justify-content: center;
+}
 button.btn-without-background:hover{
   background: unset !important;
 }
@@ -511,25 +514,28 @@ textarea{
 
 .block-item-info{
   z-index: 1111 !important;
-
   background: var(--secondary-color);
   padding: 10px;
-  margin: 0 5px;
-  border-radius: 0 0 10px 10px;
+  // margin: 0 5px;
+  border-radius: 0 0 5px 5px;
   // border-top: 1px solid var(--border-color);
   transform: translateY(-30px);
   transition: .4s ease;
-  display: none;
+  // display: none;
   visibility: hidden;
   opacity: 0;
 }
 .flex{
   display: flex;
 }
-.show-down{
+.show-down .block-item{
+  border-radius: 5px 5px 0 0 !important;
+}
+.show-down .block-item-info{
   transform: translateY(0);
   visibility: visible;
   opacity: 1;
+
 }
 .block-item-info-body{
   display: flex;

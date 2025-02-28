@@ -117,15 +117,16 @@ $ ->
 
   $(document).on 'click', '.show-block-info', (e) ->
     block_item_info = $(this).parents('div.group-for-block').children('div.block-item-info')
-    if block_item_info.hasClass('show-down')
-      block_item_info.toggleClass('show-down')
+    block_item_info_parent = block_item_info.parent('.group-for-block')
+    if block_item_info_parent.hasClass('show-down')
+      block_item_info_parent.toggleClass('show-down')
       setTimeout ->
         block_item_info.toggle()
       , 250
     else
       block_item_info.toggle()
       setTimeout ->
-        block_item_info.toggleClass('show-down')
+        block_item_info_parent.toggleClass('show-down')
       , 100
 
   $(document).on 'keyup', '.parfum_recipe_input', (e) ->
