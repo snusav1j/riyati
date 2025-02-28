@@ -10,16 +10,18 @@
       = fa_icon :plus
 .content
   .row 
+    .col-md-1
     .col-md-8
       .parfum-recipe-block.block
         - @parfum_recipes.each do |pr|
           = render partial: "parfum_recipe_item", locals: { pr: pr }
     - if ParfumRecipe.all.present?
-      .col-md-4.hide-on-mobile
+      .col-md-2.hide-on-mobile
         .row
           .col-md-12
-            .extra-info-block
+            .extra-info-block.text-center
               = "Потрачено на рецепты: #{total_recipe_materials_expense} ₽"
-        .row
-          .col-md-12
-            = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterialsForRecipe.group(:id), title: nil }
+      .col-md-1.hide-on-mobile
+        -# .row
+        -#   .col-md-12
+        -#     = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterialsForRecipe.group(:id), title: nil }
