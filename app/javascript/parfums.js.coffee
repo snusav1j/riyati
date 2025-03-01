@@ -59,7 +59,7 @@ $ ->
     if $(this).prop('checked')
       $('.parfum-material-ml').show()
       $('.parfum-material-count').hide()
-      $('input#parfum_material_material_name').val('Эфирное масло ')
+      $('input#parfum_material_material_name').val('ЭМ ')
     else
       $('.parfum-material-ml').hide()
       $('.parfum-material-count').show()
