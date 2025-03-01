@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def pretty_date(date)
 		Russian::strftime(date, "%d %B %Y") if date.present?
   end
