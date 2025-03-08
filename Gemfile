@@ -33,6 +33,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.20'
 gem 'coffee-rails', '~> 5.0'
 gem 'bootstrap'
 gem 'sassc-rails'
+gem 'sassc-rails'
 # gem 'coinmarketcap-ruby-client'
 gem 'cryptocompare'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -42,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
-
+gem 'telegram-bot-ruby'
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 

@@ -278,7 +278,13 @@ a{
 .text-muted{
   color: #a7abb2 !important;
 }
+.text-muted a{
+  color: #a7abb2 !important;
+}
 .text-small{
+  font-size: 12px !important;
+}
+.text-small a{
   font-size: 12px !important;
 }
 .text-medium{

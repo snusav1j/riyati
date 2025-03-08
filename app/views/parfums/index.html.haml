@@ -3,6 +3,9 @@
   .dop-info-controls
     %span.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
       = one_drop_ml_title
+    = link_to parfums_path do
+      #refresh-data.form-button.small-button
+        = fa_icon :refresh
     #new-parfum-modal.form-button.small-button
       = fa_icon :plus
 .content

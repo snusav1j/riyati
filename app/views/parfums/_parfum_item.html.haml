@@ -1,5 +1,6 @@
-.group-for-block.show-down{ data: { parfum_id: p.id } }
-  .parfum-item.block-item{ data: { parfum_id: p.id } }
+- show_item_style = @show_id.present? && @show_id == p.id ? show_style : ''
+.group-for-block{ data: { parfum_id: p.id } }
+  .parfum-item.block-item{ style: show_item_style, data: { parfum_id: p.id } }
     .parfum-recipe-info
       %div= p.parfum_name
       -# %div.text-muted= "#{pr.ml} мл." if pr.ml.present?

@@ -73,3 +73,5 @@
 #     loader_btn.show()
 #     btn_icon.hide()
 #     $('#coin-search-btn button').prop('disabled', true)
+
+

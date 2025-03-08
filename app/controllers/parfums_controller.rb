@@ -1,12 +1,10 @@
 class ParfumsController < ApplicationController
   before_action :ensure_current_user
   before_action :create_parfum_drop_avg
+  require 'telegram/bot'
 
   def index
-    # Parfum.delete_all
-    # ParfumMaterial.delete_all
-    # ParfumRecipe.delete_all
-    # ParfumMaterialsForRecipe.delete_all
+    @show_id = params[:show].to_i
     @parfums = Parfum.all
   end
 
@@ -25,6 +23,9 @@ class ParfumsController < ApplicationController
     @id = parfums_params[:id]
     @parfum = Parfum.find_by(id: @id)
     @updated = @parfum.update(parfums_params)
+    if @updated
+      send_tg_message("- Духи «#{@parfum.parfum_name}» обновлены - \n\nОбновлены пользователем: #{current_user.fullname}\nПерейти к духам - http://#{@http_host}#{parfums_path}?show=#{@parfum.id}")
+    end
     respond_to :js
   end
 

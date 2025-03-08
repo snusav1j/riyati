@@ -129,4 +129,8 @@ module ApplicationHelper
     }
   end
   
+  def show_style
+    'border: 3px solid #17466b !important;'
+  end
+
 end
