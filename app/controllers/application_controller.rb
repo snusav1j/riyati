@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
+  require 'telegram/bot'
   include ApplicationHelper
-  include TelegramHelper
+
   # Telegram::TOKEN
   # Telegram::CHAT_ID
   # allow_browser versions: :modern

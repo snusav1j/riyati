@@ -4,7 +4,6 @@ class CryptosController < ApplicationController
   # before_action :crypto_data
 
   def index
-    @asd = 12
     # UserCoin.delete_all
     # @cryptos = UserCoin.all
   end
