@@ -49,6 +49,16 @@ module CryptosHelper
     end
   end
 
+  def get_user_wallet_coins(user)
+    if user
+      get_user_wallet_balance(user)["result"]["list"][0]['coin']
+    end
+  end
+
+  def get_wallet_coins
+    get_wallet_balance["result"]["list"][0]['coin']
+  end
+
   def get_user_total_equity(user=nil)
     data = get_user_wallet_balance(user)
     if data.present?
