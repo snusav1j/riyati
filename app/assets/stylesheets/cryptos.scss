@@ -4,10 +4,16 @@
 .coins-info-block .coin-item:not(:last-child){
   margin-bottom: 10px;
 }
+.coins-info-block .coin-item div:first-child{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .coins-info-block .coin-item{
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: space-between;
   background: var(--table-block-color);
   padding: 10px;
   border-radius: 5px;
