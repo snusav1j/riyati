@@ -43,7 +43,7 @@ setInterval ->
     success: (data) ->
       if data != undefined
         $('#user_total_equity').html("$#{data.data}")
-, 1000
+, 1500
 
 setInterval ->
   $.ajax
@@ -54,5 +54,5 @@ setInterval ->
     success: (data) ->
       if data != undefined
         $('#total_crypto_equity').html("$#{data.data}")
-, 1000
+, 1500
 $ ->
