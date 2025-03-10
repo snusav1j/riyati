@@ -175,3 +175,9 @@
   border-radius: 5px;
   border: 1px solid var(--border-color);
 }
+
+.user-info-nav{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

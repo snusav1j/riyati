@@ -46,4 +46,22 @@
                 = fa_icon :edit
         .user-registered-info
           .text-muted= @user.registered_info
+        .user-info-nav
+          %span.text-big.text-muted.df-btn{ style: "margin-top: 15px;" } Монеты
+          %span.text-big.text-muted.df-btn{ style: "margin-top: 15px;" } Духи
+          %span.text-big.text-muted.df-btn{ style: "margin-top: 15px;" } Разное
+        - if get_user_wallet_coins(@user).present?
+          .coins-info-block
+            - get_user_wallet_coins(@user).each do |c|
+              - coin_symbol = c["coin"]
+              - coin_equity = c["equity"]
+              - coin_usd_val = c["usdValue"]
+              - if coin_usd_val.to_f >= 0.006
+                .coin-item
+                  .coin-icon
+                    = get_coin_img_by_symbol(coin_symbol)
+                  %div
+                    %span= coin_symbol
+                    .text-small.text-muted= coin_equity
+                  .text-big= "$#{coin_usd_val.to_f.round(3)}"
   .col-md-2
