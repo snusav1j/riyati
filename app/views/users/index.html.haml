@@ -16,8 +16,9 @@
                   = user.avatar
                 .user-fullname
                   = user.fullname
+                  %span.text-muted.text-small= t("role_name_#{user.role}")
                   .text-muted.text-small= user.profile_id
 
               .user-balance 
-                = user.get_balance
+                .text-muted= "$#{get_user_total_equity(user)}"
     .col-md-2

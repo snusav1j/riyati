@@ -1,10 +1,12 @@
 .content
   .row
-    .col-md-2
-    .col-md-8
+    .col-md-12
       .edit-user-title
         = link_to users_path do
           %span.text-muted.text-xxl= fa_icon "arrow-left"
-        %span.text-xxl.text-bold Создать пользователя
+        .space-between
+          %span.text-xxl.text-bold Создать пользователя
+          %button.df-btn{ type: 'submit', form: 'user-form' }
+            %span.hide-on-mobile= "Сохранить"
+            = fa_icon :save
       = render 'form'
-    .col-md-2

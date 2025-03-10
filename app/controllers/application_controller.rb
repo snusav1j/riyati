@@ -1,10 +1,13 @@
 class ApplicationController < ActionController::Base
   require 'telegram/bot'
+  require 'money'
   include ApplicationHelper
+  include CryptosHelper
 
   # Telegram::TOKEN
   # Telegram::CHAT_ID
   # allow_browser versions: :modern
+
   helper_method :current_user
   before_action :set_global_vars
   before_action :set_cache_headers

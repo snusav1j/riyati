@@ -1,6 +1,7 @@
 #dop-control-panel
   .dop-info-crypto
     Крипта
+  .vertical-separator
     -# .main-prices
     -#   .loader= fa_icon "circle-o-notch spin"
     -# .control-btns
@@ -9,3 +10,7 @@
     -#   #refresh-main-prices-btn.form-button.small-button
     -#     = fa_icon :refresh
 .content
+  .text-right
+    .text-muted.text-big{ style: "margin-bottom: 5px;" } Всего средств
+    .text-bold
+      .text-xxxl= "$#{get_total_equity}"     

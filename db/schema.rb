@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_08_015639) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_10_094743) do
   create_table "parfum_drop_avg_mls", force: :cascade do |t|
     t.float "ml"
     t.datetime "created_at", null: false
@@ -75,5 +75,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_08_015639) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tg_chat_id"
+    t.string "api"
+    t.string "s_key"
   end
 end

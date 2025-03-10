@@ -1,162 +1,112 @@
 module CryptosHelper
+  require 'net/http'
+  require 'openssl'
+  require 'json'
+  require 'uri'
 
-  # def all_crypto_currencies
-  #   all_crypto_currencies = []
-  #   Cryptocompare::CoinList.all["Data"].each do |data|
-  #     # all_crypto_currencies << data[1]["Symbol"]
-  #     all_crypto_currencies << { symbol: data[1]["Symbol"], coin_name: data[1]["CoinName"], coin_full_name: data[1]["FullName"], image_url: data[1]["ImageUrl"]}
-  #   end
-  #   all_crypto_currencies
-  # end
+  CMC_API_KEY = '8cde7e05-c9a8-4512-a726-3e5a2a1aa3f3'
+  CMC_BASE_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info'
 
-  # def coin_search(key=nil, data=nil, show=false)
-  #   result = []
-  #   # coins_data = data
-  #   if key.present?
-  #     data = data.present? ? data : Cryptocompare::CoinList.all["Data"]
-  #     key = key.downcase.strip
-  #     data.each do |data|
-  #       symbol = data[1]["Symbol"].downcase
-  #       coin_name = data[1]["CoinName"].downcase
-  #       if symbol.include?(key) || coin_name.include?(key)
-  #         result << data
-  #       end
-  #     end
-  #     if show
-  #       result.sort_by { |hsh| hsh[1]["Symbol"] }.first(20)
-  #     else
-  #       result.sort_by { |hsh| hsh[1]["Symbol"] }
-  #     end
-  #   else
-  #     if show
-  #       result.first(20)
-  #     else
-  #       result
-  #     end
-  #   end
-  # end
+  MAIN_API_KEY = 'Pk5XD1r6dyttVUQVcC'
+  MAIN_API_SECRET = 'aRjYkyJO2Rll8A9ka4f2xDXjhLvgdM18FtjJ'
+  BASE_URL = "https://api.bybit.com"
 
-  # # get info by extracted data
+  def generate_signature(params, secret)
+    query_string = params.sort.map { |k, v| "#{k}=#{v}" }.join("&")
+    OpenSSL::HMAC.hexdigest("SHA256", secret, query_string)
+  end
 
-  # def get_image_url_by_extracted_data(data)
-  #   img_url = data["ImageUrl"]
-  #   image_tag("https://www.cryptocompare.com#{img_url}")
-  # end
-
-  # def get_coin_name_by_extracted_data(data)
-  #   data["CoinName"]
-  # end
+  def send_signed_request(endpoint, params, api_key = MAIN_API_KEY, api_secret = MAIN_API_SECRET)
+    params["api_key"] = api_key
+    params["timestamp"] = (Time.now.to_f * 1000).to_i.to_s
+    params["recv_window"] = "5000"
+    params["sign"] = generate_signature(params, api_secret)
   
-  # def get_coin_website_by_extracted_data(data)
-  #   data["AssetWebsiteUrl"]
-  # end
+    uri = URI("#{BASE_URL}#{endpoint}?#{URI.encode_www_form(params)}")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(uri)
+    response = http.request(request)
+    
+    if response.code.to_i == 200
+      return JSON.parse(response.body)
+    end
+  end
+
+  def get_wallet_balance
+    endpoint = "/v5/account/wallet-balance"
+    response = send_signed_request(endpoint, { "accountType" => "UNIFIED" })
+    response
+  end
+
+  def get_user_wallet_balance(user=nil)
+    if user
+      if user.api.present? && user.s_key.present?
+        endpoint = "/v5/account/wallet-balance"
+        response = send_signed_request(endpoint, { "accountType" => "UNIFIED" }, user.api, user.s_key)
+        response
+      end
+    end
+  end
+
+  def get_user_total_equity(user=nil)
+    data = get_user_wallet_balance(user)
+    if data.present?
+      if data["result"].present?
+        data["result"]["list"][0]["totalEquity"].to_f.round(2)
+      end
+    else
+      0
+    end
+  end
+
+  def get_total_equity
+    data = get_wallet_balance
+    if data.present?
+      if data["result"].present?
+        data["result"]["list"][0]["totalEquity"].to_f.round(2)
+      end
+    else
+      0
+    end
+  end
+
+  def get_coin_ucid_by_symbol(symbol)
+    uri = URI(CMC_BASE_URL)
+    params = {
+      'symbol' => symbol.upcase  # Уникальный символ монеты (например, 'BTC')
+    }
   
-  # def get_description_by_extracted_data(data)
-  #   data["Description"]
-  # end
+    uri.query = URI.encode_www_form(params)
+  
+    request = Net::HTTP::Get.new(uri)
+    request['X-CMC_PRO_API_KEY'] = CMC_API_KEY  # Ваш API ключ
+  
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    response = http.request(request)
+  
+    if response.code.to_i == 200
+      data = JSON.parse(response.body)
+      
+      # Получаем информацию о монете
+      coin = data["data"][symbol.upcase]
+      if coin
+        coin_id = coin["id"]  # Получаем CoinID монеты
+        return coin_id
+      else
+        return nil
+      end
+    else
+      return nil
+    end
+  end
 
-  # # get info by symbol
-
-  # def coin_info_by_symbol(symbol)
-  #   Cryptocompare::CoinSnapshot.find(symbol, 'USD')['Data']
-  # end
-
-  # def coin_name_by_symbol(symbol)
-  #   coin_info = coin_info_by_symbol(symbol)
-  #   coin_info["CoinInfo"]["CoinName"]
-  # end
-
-  # def coin_full_name_by_symbol(symbol)
-  #   coin_info = coin_info_by_symbol(symbol)
-  #   coin_info["CoinInfo"]["FullName"]
-  # end
-
-  # def coin_bybit_trading_by_symbol(symbol)
-  #   if symbol.present?
-  #     symbol = symbol.upcase
-  #     link_to(symbol, "https://www.bybit.com/ru-RU/trade/spot/#{symbol}/USDT", target: "_blank")
-  #   end
-  # end
-
-  # def coin_website_by_symbol(symbol)
-  #   coin_info = coin_info_by_symbol(symbol)
-  #   coin_info["CoinInfo"]["AssetWebsiteUrl"]
-  # end
-
-  # # get info by data
-
-  # def coin_symbol_by_data(data)
-  #   data[0]
-  # end
-
-  # def coin_website_by_data(data)
-  #   data[1]["AssetWebsiteUrl"]
-  # end
-
-  # def coin_name_by_data(data)
-  #   data[1]["CoinName"]
-  # end
-
-  # def coin_full_name_by_data(data)
-  #   data[1]["FullName"]
-  # end
-
-  # def coin_icon_by_data(data)
-  #   img_url = data[1]["ImageUrl"]
-  #   image_tag("https://www.cryptocompare.com#{img_url}")
-  # end
-
-  # def coin_icon(img_url)
-  #   image_tag("https://www.cryptocompare.com#{img_url}")
-  # end
-
-  # def coin_name_by_snapshot(data)
-  #   if data.present?
-  #     img_url = data['CoinInfo']['CoinName']
-  #     image_tag("https://www.cryptocompare.com#{img_url}")
-  #   end
-  # end
-
-  # def img_url_by_snapshot(data)
-  #   if data.present?
-  #     img_url = data['CoinInfo']['ImageUrl']
-  #     image_tag("https://www.cryptocompare.com#{img_url}")
-  #   end
-  # end
-
-  # def price_by_snapshot(data, first_curr, second_curr)
-  #   if data.present?
-  #     "#{data['AggregatedData']['PRICE'].to_f.round(2)} #{second_curr}"
-  #   end
-  # end
-
-  # def algorithm_by_snapshot(data)
-  #   result = data['CoinInfo']
-  #   if data.present? && result.present?
-  #     "Алгоритм: #{result["Algorithm"]}"
-  #   end
-  # end
-
-  # def total_day_volume_by_snapshot(data)
-  #   result = data['AggregatedData']
-  #   if data.present? && result.present?
-  #     "Алгоритм: #{result["MKTCAP"]}"
-  #   end
-  # end
-
-  # def coin_price(symbol=nil, currency=nil)
-  #   if symbol.present?
-  #     symbol = symbol.upcase
-  #     if currency.present?
-  #       currency = currency.upcase 
-  #       price_hash = Cryptocompare::Price.find(symbol, currency)
-  #       coin_price = price_hash[symbol].present? ? "#{price_hash[symbol][currency]} #{currency}" : '-'
-  #     else
-  #       price_hash = Cryptocompare::Price.find(symbol, 'USD')
-  #       coin_price = price_hash[symbol].present? ? "#{price_hash[symbol]['USD']} USD" : '-'
-  #     end
-  #     return coin_price
-  #   end
-  # end
+  def get_coin_img_by_symbol(symbol)
+    ucid = get_coin_ucid_by_symbol(symbol)
+    if ucid.present?
+      image_tag("https://s2.coinmarketcap.com/static/img/coins/64x64/#{ucid}.png")
+    end
+  end
 
 end
