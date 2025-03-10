@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   require 'telegram/bot'
-  require 'money'
+  # require 'money'
   include ApplicationHelper
   include CryptosHelper
 
