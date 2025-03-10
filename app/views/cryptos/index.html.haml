@@ -11,9 +11,13 @@
     -#     = fa_icon :refresh
 .content
   .text-right
-    .text-muted.text-big{ style: "margin-bottom: 5px;" } Всего средств
+    .space-between
+      %div
+        .text-xxl.text-bold.hide-on-mobile Eдиный торговый аккаунт
+        .text-xxl.text-bold.show-on-mobile EТА
+      .text-muted.text-big{ style: "margin-bottom: 5px;" } Всего средств
     .text-bold
-      .text-xxxl= "$#{get_total_equity}"     
+      #total_crypto_equity.text-xxxl= "$#{get_total_equity}"     
 
   - if get_wallet_coins.present?
     .coins-info-block
@@ -25,8 +29,8 @@
           .coin-item
             %div
               .coin-icon
-                = get_coin_img_by_symbol(coin_symbol)
+                -# = get_coin_img_by_symbol(coin_symbol)
               %div
                 %span= coin_symbol
                 .text-small.text-muted= coin_equity
-            .text-big= "$#{coin_usd_val.to_f.round(3)}"
+            #total_equity.text-big= "$#{coin_usd_val.to_f.round(3)}"

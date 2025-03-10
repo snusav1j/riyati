@@ -7,6 +7,25 @@ class CryptosController < ApplicationController
     # @cryptos = UserCoin.all
   end
 
+  def refresh_user_total_equity
+    if @cur_url.include?('user')
+      data = get_user_total_equity(current_user)
+      render json: { data: data }
+    end
+  end
+
+  def refresh_total_equity
+    if @cur_url.include?('crypto')
+      data = get_total_equity
+      render json: { data: data }
+    end
+  end
+
+  def refresh_coin_usd_value
+
+  end
+
+
   # def get_main_prices
   #   @usd_to_rub = Cryptocompare::CoinSnapshot.find('USDT', 'RUB')['Data']
   #   @sol_to_usd = Cryptocompare::CoinSnapshot.find('SOL', 'USD')['Data']

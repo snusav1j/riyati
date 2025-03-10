@@ -20,5 +20,7 @@
                   .text-muted.text-small= user.profile_id
 
               .user-balance 
-                .text-muted= "$#{get_user_total_equity(user)}"
+                #user_total_equity.text-muted= "$#{get_user_total_equity(user)}"
     .col-md-2
+
+= @cur_url.include?('users')

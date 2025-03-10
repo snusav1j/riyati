@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   
   resources :cryptos do
     collection do
+      get :refresh_user_total_equity
+      get :refresh_total_equity
+      get :refresh_coin_usd_value
       # get :new_modal
       # get :edit_modal
       # post :search_coins
