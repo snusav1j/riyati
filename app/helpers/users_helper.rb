@@ -4,7 +4,7 @@ module UsersHelper
     if current_user.director?
       User::DIRECTOR_ROLES
     elsif current_user.ceo?
-      User::DEV_ROLES
+      User::CEO_ROLES
     elsif current_user.dev?
       User::DEV_ROLES
     end
