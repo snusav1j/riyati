@@ -22,6 +22,10 @@ module ParfumsHelper
     ml
   end
 
+  def get_parfum_bottle_icon
+    image_tag("/parfum_icons/parfum_bottle.svg")
+  end
+
   def materials_list_for_select(parfum_recipe)
     result = []
     # ParfumMaterialsForRecipe.where(parfum_recipe_id: parfum_recipe.id).each do |pmfr|

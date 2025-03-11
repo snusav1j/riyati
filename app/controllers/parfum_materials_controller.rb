@@ -7,7 +7,13 @@ class ParfumMaterialsController < ApplicationController
     
     respond_to :js
   end
-  
+
+  def parfum_materials_used_in
+    @id = params[:id]
+    @parfum_material = ParfumMaterial.find_by(id: @id)
+    respond_to :js
+  end
+
   def update
     @id = parfum_materials_params[:id]
     @parfum_material = ParfumMaterial.find_by(id: @id)

@@ -1,5 +1,5 @@
 <% if @updated %>
-  $(".group-for-block[data-parfum-recipe-id='<%= @parfum_recipe.id %>']").replaceWith("<%= j render partial: '/parfums/parfum_recipe_item', locals: { pr: @parfum_recipe } %>");
+  $("[data-parfum-recipe-id='<%= @parfum_recipe.id %>']").replaceWith("<%= j render partial: '/parfums/parfum_recipe_item', locals: { pr: @parfum_recipe } %>");
   toastr.success('Рецепт духов обновлен.')
   $('#parfum-recipe-modal').modal('hide');
 <% end %>

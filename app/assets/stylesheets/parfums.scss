@@ -22,8 +22,8 @@
 }
 .change-drop-info-form-controls{
   display: flex;
-
 }
+
 input#parfum_drop_avg_ml_ml {
   height: 30px;
 }
@@ -43,4 +43,16 @@ input#parfum_drop_avg_ml_ml {
 }
 .calc-body input{
   margin-top: 3px;
+}
+
+.parfum-name.text-big {
+  max-width: 100px;
+}
+.break-text{
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-break: break-all;
 }

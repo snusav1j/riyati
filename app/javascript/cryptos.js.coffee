@@ -35,7 +35,7 @@
 #         beginAtZero: true
 
 $(window).on 'load', (e) ->
-  if ($(location).attr('href').toLowerCase().indexOf("users/") >= 0) == false && $(location).attr('href').toLowerCase().indexOf("users") >= 0
+  if (($(location).attr('href').toLowerCase().indexOf("users/") >= 0) == false) && $(location).attr('href').toLowerCase().indexOf("users") >= 0
     setInterval ->
       $.ajax
         url: "/cryptos/refresh_user_total_equity"

@@ -1,4 +1,5 @@
 .tooltip-m {
+	font-size: 12px;
 	text-align: center;
 	transition: all 0.5s ease-in-out;
 	position: relative;
@@ -8,6 +9,7 @@
 .tooltip-m::before,
 .tooltip-m::after {
 	position: absolute;
+	font-size: 12px;
   z-index: 1;
 	top: 0;
 	left: -20px;
@@ -22,7 +24,8 @@
 .tooltip-m:hover::after {
 	visibility: visible;
 	opacity: 1;
-	transform: translateX(15px) translateY(-32px);
+	transform: translateX(-5%) translateY(-32px);
+	font-size: 12px;
 }
 .tooltip-m::before{
   background: var(--secondary-color);
@@ -32,7 +35,7 @@
 	width: fit-content;
 	white-space: nowrap;
 	height: auto;
-	border-radius: 5px;
+	border-radius: 3px;
 	display: block;
 	padding: 5px 10px;
   // margin: 0 auto;

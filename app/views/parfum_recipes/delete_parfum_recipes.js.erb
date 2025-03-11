@@ -1,5 +1,5 @@
 <% if @deleted %>
   toastr.error('Рецепт удален.')
-  $(".group-for-block[data-parfum-recipe-id='<%= @parfum_recipe.id %>']").remove();
+  $("[data-parfum-recipe-id='<%= @parfum_recipe.id %>']").remove();
 
 <% end %>

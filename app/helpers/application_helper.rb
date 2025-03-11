@@ -128,7 +128,13 @@ module ApplicationHelper
       }
     }
   end
-  
+
+  def svg(path)
+    File.open("#{path}", "rb") do |file|
+      raw file.read
+    end
+  end
+
   def show_style
     'border: 3px solid #17466b !important;'
   end

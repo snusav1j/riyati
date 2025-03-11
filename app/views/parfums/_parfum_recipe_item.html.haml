@@ -1,25 +1,43 @@
-.group-for-block.show-down{ data: { parfum_recipe_id: pr.id } }
-  .parfum-recipe-item.block-item{ data: { parfum_recipe_id: pr.id } }
-    .parfum-recipe-info
-      %div= "Рецепт ##{pr.id}"
-      %div.text-muted= "#{pr.ml} мл." if pr.ml.present?
+-# .group-for-block.show-down{ data: { parfum_recipe_id: pr.id } }
+-#   .parfum-recipe-item.block-item{ data: { parfum_recipe_id: pr.id } }
+-#     .parfum-recipe-info
+-#       %div= "Рецепт ##{pr.id}"
+-#       %div.text-muted= "#{pr.ml} мл." if pr.ml.present?
     
-    .block-controls
-      .parfum-recipe-expense
+-#     .block-controls
+-#       .parfum-recipe-expense
         
-      .show-parfum-recipe-btn.show-block-info.default-btn{ data: { parfum_recipe_id: pr.id } }
-        = fa_icon :info
-      .delete-parfum-recipe-btn.delete-btn{ data: { parfum_recipe_id: pr.id } }
-        = fa_icon :trash
-  .block-item-info
-    .block-item-info-header Расходники:
-    .block-item-info-body
-      %div
-        - pr.parfum_materials_for_recipe.each do |pmfr|
-          - if pmfr.material.liquid_material?
-            .text-muted.text-small= "#{pmfr.material.material_name}: #{pmfr.spent_material_ml} мл."
-          - else
-            .text-muted.text-small= "#{pmfr.material.material_name}: #{pmfr.spent_material_count} шт."
+-#       .show-parfum-recipe-btn.show-block-info.default-btn{ data: { parfum_recipe_id: pr.id } }
+-#         = fa_icon :info
+-#       .delete-parfum-recipe-btn.delete-btn{ data: { parfum_recipe_id: pr.id } }
+-#         = fa_icon :trash
+-#   .block-item-info
+-#     .block-item-info-header Расходники:
+-#     .block-item-info-body
+-#       %div
+-#         - pr.parfum_materials_for_recipe.each do |pmfr|
+-#           - if pmfr.material.liquid_material?
+-#             .text-muted.text-small= "#{pmfr.material.material_name}: #{pmfr.spent_material_ml} мл."
+-#           - else
+-#             .text-muted.text-small= "#{pmfr.material.material_name}: #{pmfr.spent_material_count} шт."
             
-      %div
-        .text-muted.text-small= "~#{pr.get_recipe_expense} ₽"
+-#       %div
+-#         .text-muted.text-small= "~#{pr.get_recipe_expense} ₽"
+
+
+.card-block.card-item.clickable.parfum-recipe-item{ data: { parfum_recipe_id: pr.id } }
+  .card-icon
+    .card-id.text-small.text-muted= "##{pr.id}"
+    = material_icon.shape(:receipt_long).outlined
+    
+  .card-block-info
+    .card-block-info-1
+      .parfum-recipe-name.card-name.text-big.tooltip-m{ title: "Рецепт ##{pr.id}" }
+        .break-text= "Рецепт ##{pr.id}"
+      .text-muted.tooltip-m{ title: "Примерные затраты" }= "~ #{pr.get_recipe_expense} ₽"
+
+    .card-block-info-2.show-materials{ data: { parfum_recipe_id: pr.id } }
+      .text-muted.text-small= "Расходников: #{pr.parfum_materials_for_recipe.length}"
+    .delete-parfum-recipe-btn.delete-btn.text-danger.card-btm-right{ data: { parfum_recipe_id: pr.id } }
+      = fa_icon :trash
+

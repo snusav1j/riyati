@@ -1,27 +1,17 @@
 #dop-control-panel
-  Расходники
+  %div
+    %span= "Расходники"
+    %span.text-muted.text-small= "затрачено: (#{total_materials_expense} ₽)" if ParfumMaterial.all.present?
   .dop-info-controls
-    %span.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
+    %span.text-small.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
       = one_drop_ml_title
-    = link_to parfum_materials_parfums_path do
-      #refresh-data.form-button.small-button
-        = fa_icon :refresh
+    -# = link_to parfum_materials_parfums_path do
+    -#   #refresh-data.form-button.small-button
+    -#     = fa_icon :refresh
     #new-parfum-material-modal.form-button.small-button
       = fa_icon :plus
 .content
-  .row 
-    .col-md-1
-    .col-md-8
-      .parfum-material-block.block
-        - @parfum_materials.each do |pm|
-          = render partial: "parfum_material_item", locals: { pm: pm }
-    - if ParfumMaterial.all.present?
-      .col-md-2.hide-on-mobile
-        .row
-          .col-md-12
-            .extra-info-block.text-center
-              = "Расходников на сумму: #{total_materials_expense} ₽"
-      .col-md-1.hide-on-mobile
-        -# .row
-        -#   .col-md-12
-        -#     = render partial: '/charts/donut_chart', locals: { chart_data: ParfumMaterial.group(:material_name), title: nil }
+  - parfum_block_style = @parfum_materials.length >= 6 ? 'justify-content: center;' : ''
+  .parfum-material-block.card-blocks{ style: parfum_block_style }
+    - @parfum_materials.each do |pm|
+      = render partial: "parfum_material_item", locals: { pm: pm }

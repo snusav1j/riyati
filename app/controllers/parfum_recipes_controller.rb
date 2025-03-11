@@ -50,6 +50,12 @@ class ParfumRecipesController < ApplicationController
 
     respond_to :js
   end
+  
+  def show_materials
+    @id = params[:id]
+    @parfum_recipe = ParfumRecipe.find_by(id: @id)
+    respond_to :js
+  end
 
   def delete_parfum_recipes
     @id = params[:id]

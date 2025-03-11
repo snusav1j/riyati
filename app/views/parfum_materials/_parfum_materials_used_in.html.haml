@@ -1,0 +1,23 @@
+.modal.fade.in#parfum-material-show-used-in-modal{:tabindex => "-1"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %h5.modal-title
+          = title
+        %button.btn-without-background.small-button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+          = fa_icon :times
+      .modal-body
+        %div
+          - if parfum_material.materials_used_in.present?
+            .block-item-info-body
+              %div
+                - parfum_material.materials_used_in.each do |pmu|
+                  - if parfum_material.liquid_material?
+                    .text-muted= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(parfum_material.id)} мл.)"
+                  - else
+                    .text-muted= "В рецепте ##{pmu.recipe.id} (#{pmu.recipe.get_spent_material(parfum_material.id)} шт.)"
+          - else
+            .block-item-info-body
+              .text-muted Еще нигде не использовался
+      .modal-footer 
+        %button.pull-right{ "data-bs-dismiss" => "modal", class: 'save-btn default-btn' } Закрыть

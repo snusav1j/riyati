@@ -20,8 +20,8 @@ $ ->
       dataType: "script"
       type: "GET"
 
-  $(document).on 'dblclick', '.parfum-material-item', (e) ->
-    if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info'))
+  $(document).on 'click', '.parfum-material-item', (e) ->
+    if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info') || e.target.classList.contains('card-block-info-2'))
       id = $(this).attr('data-parfum-material-id')
       $.ajax
         url: "/parfums/edit_parfum_materials_modal"
@@ -40,8 +40,8 @@ $ ->
       data:
         url: url
 
-  $(document).on 'dblclick', '.parfum-item', (e) ->
-    if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info'))
+  $(document).on 'click', '.card-block', (e) ->
+    if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info') || e.target.classList.contains('card-block-info-2'))
       id = $(this).attr('data-parfum-id')
       $.ajax
         url: "/parfums/edit_parfum_modal"
@@ -80,7 +80,17 @@ $ ->
       dataType: "script"
       type: "GET"
 
-  $(document).on 'dblclick', '.parfum-recipe-item', (e) ->
+  $(document).on 'click', '.parfum-recipe-item', (e) ->
+    if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info') || e.target.classList.contains('card-block-info-2') )
+      id = $(this).attr('data-parfum-recipe-id')
+      $.ajax
+        url: "/parfums/edit_parfum_recipes_modal"
+        dataType: "script"
+        type: "GET"
+        data:
+          id: id
+
+  $(document).on 'click', '.parfum-recipe-info', (e) ->
     if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info'))
       id = $(this).attr('data-parfum-recipe-id')
       $.ajax
@@ -167,3 +177,21 @@ $ ->
 
     drops_count = (Number(parfum_calc_mls_input.val() / Number(one_drop_info)) ).toFixed(2)
     parfum_calc_drops_input.val(drops_count)
+
+  $(document).on 'click', '.show-used-in', (e) ->
+    id = $(this).attr('data-parfum-material-id')
+    $.ajax
+      url: "/parfum_materials/parfum_materials_used_in"
+      dataType: "script"
+      type: "GET"
+      data:
+        id: id
+
+  $(document).on 'click', '.show-materials', (e) ->
+    id = $(this).attr('data-parfum-recipe-id')
+    $.ajax
+      url: "/parfum_recipes/show_materials"
+      dataType: "script"
+      type: "GET"
+      data:
+        id: id

@@ -39,12 +39,14 @@ Rails.application.routes.draw do
   resources :parfum_recipes do
     collection do
       get :delete_parfum_recipes
+      get :show_materials
     end
   end
 
   resources :parfum_materials do
     collection do
       get :delete_parfum_materials
+      get :parfum_materials_used_in
     end
   end
 

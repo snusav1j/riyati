@@ -1,5 +1,5 @@
 <% if @deleted %>
   toastr.error('Расходник удален.')
-  $(".group-for-block[data-parfum-material-id='<%= @parfum_material.id %>']").remove();
+  $("[data-parfum-material-id='<%= @parfum_material.id %>']").remove();
 
 <% end %>

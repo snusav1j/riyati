@@ -9,10 +9,7 @@
     #new-parfum-modal.form-button.small-button
       = fa_icon :plus
 .content
-  .row 
-    .col-md-1
-    .col-md-10
-      .parfum-block.block
-        - @parfums.each do |p|
-          = render partial: "parfum_item", locals: { p: p }
-    .col-md-1
+  - parfum_block_style = @parfums.length >= 6 ? 'justify-content: center;' : ''
+  .parfum-block.card-blocks{ style: parfum_block_style }
+    - @parfums.each do |p|
+      = render partial: "parfum_item", locals: { p: p }
