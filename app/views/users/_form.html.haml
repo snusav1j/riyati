@@ -16,7 +16,7 @@
           .col-md-12
             = f.label "Почта"
             = f.text_field :email, placeholder: "Почта", type: :email, required: false, autocomplete: "new-password"
-        - if (current_user.ceo? || current_user.director? || @user == current_user)
+        - if ceo_rights
           .row
             .col-md-12
               = f.label "Логин"
@@ -25,7 +25,7 @@
             .col-md-12
               = f.label "Пароль"
               = f.number_field :password, placeholder: "Пароль", type: :password, required: true, autocomplete: "new-password"
-        - if (current_user.ceo? || current_user.director?) && !(@user.ceo? && current_user.director?)
+        - if ceo_rights
           .row
             .col-md-12
               = f.label "Роль"
@@ -52,3 +52,10 @@
         .row
           .col-md-12
             = f.text_field :s_key, placeholder: "KEY", type: :password, required: false, autocomplete: "new-password"
+        - if @user == current_user
+          .row
+            .col-md-12
+              .group-row
+                = f.label :hide_crypto_info, "Скрыть информацию от других пользователей" 
+                = f.check_box :hide_crypto_info, required: false, autocomplete: "new-password"
+        

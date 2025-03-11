@@ -5,6 +5,8 @@ module UsersHelper
       User::DIRECTOR_ROLES
     elsif current_user.ceo?
       User::CEO_ROLES
+    elsif current_user.dev?
+      User::DEV_ROLES
     end
   end
   

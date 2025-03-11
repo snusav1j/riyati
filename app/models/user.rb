@@ -4,9 +4,11 @@ class User < ApplicationRecord
   ROLE_CEO = 'ceo'
   ROLE_DIRECTOR = 'director'
   ROLE_USER = 'user'
+  ROLE_DEVELOPER = 'dev'
 
   scope :by_coin_symbol, ->(crypto_symbol) { where("user.user_coins.crypto_symbol = ?", crypto_symbol) if crypto_symbol }
   
+  DEV_ROLES = [ROLE_CEO, ROLE_DIRECTOR, ROLE_USER, ROLE_DEVELOPER]
   CEO_ROLES = [ROLE_CEO, ROLE_DIRECTOR, ROLE_USER]
   DIRECTOR_ROLES = [ROLE_DIRECTOR, ROLE_USER]
 
@@ -20,6 +22,10 @@ class User < ApplicationRecord
 
   def ceo?
     self.role == ROLE_CEO
+  end
+
+  def dev?
+    self.role == ROLE_DEVELOPER
   end
 
   def role_name

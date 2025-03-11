@@ -67,6 +67,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.expect(user: [ :firstname, :lastname, :role, :email, :login, :password, :balance, :tg_chat_id, :api, :s_key ])
+      params.expect(user: [ :hide_crypto_info, :firstname, :lastname, :role, :email, :login, :password, :balance, :tg_chat_id, :api, :s_key ])
     end
 end

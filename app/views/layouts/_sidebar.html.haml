@@ -37,7 +37,7 @@
                 %li
                   = link_to parfum_materials_parfums_path do
                     Расходники
-          - if current_user.director? || current_user.ceo?
+          - if view_rights
             %li
               = link_to users_path do
                 Пользователи

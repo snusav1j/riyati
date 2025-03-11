@@ -1,4 +1,13 @@
 module ApplicationHelper
+
+  def ceo_rights
+    (current_user.ceo? || current_user.director? || current_user.dev?) && !(@user.ceo? && current_user.director?) && !(@user.dev? && (current_user.director? || current_user.ceo?))
+  end
+  
+  def view_rights
+    current_user.director? || current_user.ceo? || current_user.dev?
+  end
+
   def pretty_date(date)
 		Russian::strftime(date, "%d %B %Y") if date.present?
   end
@@ -128,7 +137,7 @@ module ApplicationHelper
       }
     }
   end
-
+  
   def svg(path)
     File.open("#{path}", "rb") do |file|
       raw file.read

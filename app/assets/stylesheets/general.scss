@@ -577,6 +577,9 @@ table thead tr th{
   justify-content: space-between;
   width: 100%;
 }
+.group-row input{
+  margin: 0 !important;
+}
 .group-row{
   display: flex;
   align-items: center;

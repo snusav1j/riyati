@@ -23,8 +23,8 @@
     .content
       #user_id{ style: "display: none !important;" }= @user.id
       .back-to-users
-        - user_back_link = current_user.director? || current_user.ceo? ? users_path : root_path
-        - user_back_title = current_user.director? || current_user.ceo? ? 'Назад' : 'На главную'
+        - user_back_link = view_rights ? users_path : root_path
+        - user_back_title = view_rights ? 'Назад' : 'На главную'
         = link_to user_back_link do
           %span.text-muted.text-xxl= fa_icon "arrow-left"
         %span.text-xxl.text-bold= user_back_title
@@ -39,7 +39,7 @@
             = @user.firstname
             %span.hide-on-laptop= @user.lastname
             #user-id.text-muted.text-big= @user.user_login_id
-          - if current_user.director? || current_user.ceo? || current_user == @user
+          - if ceo_rights || current_user == @user
             = link_to edit_user_path(@user) do
               .user-edit-btn
                 %span.hide-on-mobile= "Редактировать"
@@ -50,29 +50,32 @@
           %span.text-big.text-muted.df-btn{ style: "margin-top: 15px;" } Монеты
           %span.text-big.text-muted.df-btn{ style: "margin-top: 15px;" } Духи
           %span.text-big.text-muted.df-btn{ style: "margin-top: 15px;" } Разное
-        - if get_user_wallet_coins(@user).present?
-          .coins-info-block
-            - get_user_wallet_coins(@user).each do |c|
-              - coin_symbol = c["coin"]
-              - coin_equity = c["equity"]
-              - coin_usd_val = c["usdValue"]
-              - if coin_usd_val.to_f >= 0.006
-                .coin-item
-                  %div
-                    .coin-icon
-                      = get_coin_img_by_symbol(coin_symbol)
+        - if !@user.hide_crypto_info || @user == current_user
+          - if get_user_wallet_coins(@user).present?
+            .coins-info-block
+              - get_user_wallet_coins(@user).each do |c|
+                - coin_symbol = c["coin"]
+                - coin_equity = c["equity"]
+                - coin_usd_val = c["usdValue"]
+                - if coin_usd_val.to_f >= 0.006
+                  .coin-item
                     %div
-                      %span= coin_symbol
-                      .text-small.text-muted= coin_equity
-                  #curr_user_coin_usd_val.text-big= "$#{coin_usd_val.to_f.round(3)}"
+                      .coin-icon
+                        = get_coin_img_by_symbol(coin_symbol)
+                      %div
+                        %span= coin_symbol
+                        .text-small.text-muted= coin_equity
+                    #curr_user_coin_usd_val.text-big= "$#{coin_usd_val.to_f.round(3)}"
+          - else
+            %div{ style: "margin-top: 15px" }
+              - if (@user == current_user)
+                %span.text-muted= "В вашем"
+              - else
+                %span.text-muted= "В"
+              %span.text-muted= "кошельке нет монет."
+              - if (@user == current_user)
+                %span.text-muted= "Возможно не подключен кошелек в" 
+                %span= link_to "настройках", edit_user_path(@user)
         - else
-          %div{ style: "margin-top: 15px" }
-            - if (@user == current_user)
-              %span.text-muted= "В вашем"
-            - else
-              %span.text-muted= "В"
-            %span.text-muted= "кошельке нет монет."
-            - if (@user == current_user)
-              %span.text-muted= "Возможно не подключен кошелек в" 
-              %span= link_to "настройках", edit_user_path(@user)
+          .text-muted{ style: "margin-top: 15px" } Пользователь предпочел скрыть информацию о криптоактивах
   .col-md-2
