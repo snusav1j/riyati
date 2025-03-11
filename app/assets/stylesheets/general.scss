@@ -801,6 +801,9 @@ textarea{
   .card-block{
     width: 100%;
   }
+  .card-name {
+    max-width: 165px;
+  }
 }
 .card-block-info-2:hover{
   color: #b4b4b4;
