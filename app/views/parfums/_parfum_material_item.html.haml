@@ -10,8 +10,9 @@
   .card-block-info
     .space-between.align-center
       %div
+        .tooltip-m{ title: pm.material_name }
         .card-block-info-1
-          .card-name.parfum-material-name.text-big.tooltip-m{ title: pm.material_name }
+          .card-name.parfum-material-name.text-big
             .break-text= pm.material_name
         .text-muted
           - if pm.liquid_material?
