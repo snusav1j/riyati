@@ -1,7 +1,7 @@
 #dop-control-panel
   %div
     %span= "Рецепты"
-    %span.text-muted.text-small= "затрачено: (#{total_recipe_materials_expense} ₽)" if ParfumRecipe.all.present?
+    %span.text-muted.text-small= "затрачено: (#{total_recipe_materials_expense.round(2)} ₽)" if ParfumRecipe.all.present?
   .dop-info-controls
     %span.text-small.text-muted.one-drop-info{ data: { one_drop: one_drop_ml } }
       = one_drop_ml_title
