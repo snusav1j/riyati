@@ -54,7 +54,7 @@ module CryptosHelper
       if get_user_wallet_balance(user).present?
         get_user_wallet_balance(user)["result"]["list"][0]['coin']
       end
-    end
+    end%#12gSJl|7
   end
 
   def get_wallet_coins

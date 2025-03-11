@@ -65,4 +65,6 @@
                       %span= coin_symbol
                       .text-small.text-muted= coin_equity
                   #curr_user_coin_usd_val.text-big= "$#{coin_usd_val.to_f.round(3)}"
+        - else
+          в кошельке нет монет, возмоэно не подключен кошелек в настройках
   .col-md-2
