@@ -66,5 +66,13 @@
                       .text-small.text-muted= coin_equity
                   #curr_user_coin_usd_val.text-big= "$#{coin_usd_val.to_f.round(3)}"
         - else
-          в кошельке нет монет, возмоэно не подключен кошелек в настройках
+          %div{ style: "margin-top: 15px" }
+            - if (@user == current_user)
+              %span.text-muted= "В вашем"
+            - else
+              %span.text-muted= "В"
+            %span.text-muted= "кошельке нет монет."
+            - if (@user == current_user)
+              %span.text-muted= "Возможно не подключен кошелек в" 
+              %span= link_to "настройках", edit_user_path(@user)
   .col-md-2
