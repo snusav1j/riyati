@@ -1,5 +1,5 @@
 <% if @created %>
   $('.parfum-recipe-block.card-blocks').append("<%= j render partial: '/parfums/parfum_recipe_item', locals: { pr: @parfum_recipe } %>");
-  toastr.success('Рецепт духов создан.')
+  $().toastr('success', 'Рецепт духов создан.')
   $('#parfum-recipe-modal').modal('hide');
 <% end %>

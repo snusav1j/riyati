@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   resources :parfum_materials do
     collection do
       get :delete_parfum_materials
+      post :filter
       get :parfum_materials_used_in
     end
   end

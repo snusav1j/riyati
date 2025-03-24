@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_11_141012) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_24_200410) do
   create_table "parfum_drop_avg_mls", force: :cascade do |t|
     t.float "ml"
     t.datetime "created_at", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_11_141012) do
     t.datetime "updated_at", null: false
     t.boolean "liquid_material"
     t.integer "material_count"
+    t.boolean "archive"
   end
 
   create_table "parfum_materials_for_recipes", force: :cascade do |t|

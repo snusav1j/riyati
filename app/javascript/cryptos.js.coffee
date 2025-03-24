@@ -34,7 +34,7 @@
 #       y:
 #         beginAtZero: true
 
-$(window).on 'load', (e) ->
+# $(window).on 'load', (e) ->
   # if (($(location).attr('href').toLowerCase().indexOf("users/") >= 0) == false) && $(location).attr('href').toLowerCase().indexOf("users") >= 0
   #   setInterval ->
   #     $.ajax
@@ -48,16 +48,16 @@ $(window).on 'load', (e) ->
   #           $('#user_total_equity').html("$#{data.data}")
   #   , 3000
 
-  if $(location).attr('href').toLowerCase().indexOf("cryptos") >= 0
-    setInterval ->
-      $.ajax
-        url: "/cryptos/refresh_total_equity"
-        type: "GET"
-        dataType: "json"
-        async: false
-        success: (data) ->
-          if data != undefined
-            $('#total_crypto_equity').html("$#{data.data}")
-    , 3000
+  # if $(location).attr('href').toLowerCase().indexOf("cryptos") >= 0
+  #   setInterval ->
+  #     $.ajax
+  #       url: "/cryptos/refresh_total_equity"
+  #       type: "GET"
+  #       dataType: "json"
+  #       async: false
+  #       success: (data) ->
+  #         if data != undefined
+  #           $('#total_crypto_equity').html("$#{data.data}")
+  #   , 3000
     
 $ ->

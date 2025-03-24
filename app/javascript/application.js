@@ -10,6 +10,7 @@
 //= require toastr
 //= require parfums
 //= require multiple_select
+//= require custom_toastr
 //= require echarts.min.js
 //= require echarts/theme/dark.js
 

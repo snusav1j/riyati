@@ -14,6 +14,16 @@ class ParfumMaterialsController < ApplicationController
     respond_to :js
   end
 
+  def filter
+    @material_name = parfum_materials_filter_params[:material_name]
+    @archive = parfum_materials_filter_params[:archive].to_i == 1
+    @liquid_material = parfum_materials_filter_params[:liquid_material].to_i == 1
+    @not_liquid_material = parfum_materials_filter_params[:not_liquid_material].to_i == 1
+
+    @parfum_materials = ParfumMaterial.filter(@material_name, @liquid_material, @not_liquid_material, @archive)
+    respond_to :js
+  end
+
   def update
     @id = parfum_materials_params[:id]
     @parfum_material = ParfumMaterial.find_by(id: @id)
@@ -34,7 +44,11 @@ class ParfumMaterialsController < ApplicationController
   private
   
   def parfum_materials_params
-    params.expect(parfum_material: [ :id, :material_name, :material_ml, :expense, :liquid_material, :material_count ])
+    params.expect(parfum_material: [ :id, :material_name, :material_ml, :expense, :liquid_material, :material_count, :archive ])
+  end
+  
+  def parfum_materials_filter_params
+    params.expect(parfum_material_filter: [ :material_name, :archive, :liquid_material, :not_liquid_material ])
   end
 
 end

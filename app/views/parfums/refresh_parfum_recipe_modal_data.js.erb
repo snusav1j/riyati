@@ -1,3 +1,3 @@
 $("#parfum_recipe_modal_body").html("<%= j render partial: 'parfum_recipe_modal_body', locals: { parfum_materials_for_recipe_list: @parfum_materials_for_recipe_list, url: @url, parfum_recipe: @parfum_recipe } %>");
 $().setMultipleSelect();
-toastr.success('Информация обновлена')
+$().toastr('success', 'Информация обновлена.')

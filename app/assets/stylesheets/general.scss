@@ -585,6 +585,9 @@ table thead tr th{
   align-items: center;
   gap: 10px;
 }
+.small-group-row{
+  height: 25px;
+}
 input[type=checkbox]{
   width: fit-content !important;
 }
@@ -737,6 +740,10 @@ textarea{
 }
 
 
+.large-btn{
+  padding: 10px 15px;
+  width: 100%;
+}
 
 .card-icon{
   width: 100%;
@@ -831,3 +838,4 @@ textarea{
   bottom: 15px;
   right: 15px;
 }
+

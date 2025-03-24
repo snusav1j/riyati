@@ -2,7 +2,30 @@ class ParfumMaterial < ApplicationRecord
   # has_many :parfum_materials_for_recipes
   
   scope :liquid_material, ->{ where("liquid_material = ?", true) }
-  scope :not_liquid_material, -> { where("liquid_material = ?", false) }
+  scope :not_liquid_material, ->{ where("liquid_material = ? OR liquid_material IS NULL", false) }
+  scope :by_material_name, -> (material_name) { where("lower(material_name) LIKE (?)", "%#{material_name}%") if material_name.present? }
+  scope :archived, ->{ where("archived == ?", true) }
+  scope :not_archived, ->{ where("archived IS FALSE AND archived IS NOT NULL") }
+
+  def self.filter material_name=nil, liquid_material=nil, not_liquid_material=nil, archive=false
+    result = []
+    parfum_materials = self.all
+    parfum_materials = self.where(liquid_material: liquid_material) if liquid_material
+    parfum_materials = self.where("liquid_material = ? OR liquid_material IS NULL", false) if not_liquid_material
+    parfum_materials = self.where(archive: archive) if archive != false
+    if material_name.present?
+      parfum_materials.each do |pm|
+        if pm.material_name.downcase.include?(material_name.downcase)
+          result << pm
+        end
+      end
+    end
+    if result.length <= 0
+      parfum_materials
+    else
+      result
+    end
+  end
 
   def materials_used_in
     ParfumMaterialsForRecipe.where(material_id: self.id)

@@ -56,3 +56,10 @@ input#parfum_drop_avg_ml_ml {
   white-space: normal;
   word-break: break-all;
 }
+#parfum_material_filter {
+  background: var(--light-main-color);
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  height: 260px;
+}

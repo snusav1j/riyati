@@ -27,3 +27,12 @@
     display: block !important;
   }
 }
+@media screen and (max-width: 991px){
+  .parfum-materials-row {
+    flex-direction: column-reverse;
+  }
+  .parfum-materials-row #parfum_material_filter{
+    margin-bottom: 15px;
+  }
+}
+

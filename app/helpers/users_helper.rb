@@ -9,5 +9,4 @@ module UsersHelper
       User::DEV_ROLES
     end
   end
-  
 end

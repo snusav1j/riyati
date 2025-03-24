@@ -26,7 +26,7 @@ Rails.application.configure do
   else
     config.action_controller.perform_caching = false
   end
-
+  config.i18n.available_locales = [:ru, :en]
   # Change to :null_store to avoid any caching.
   config.cache_store = :memory_store
 

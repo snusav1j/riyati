@@ -12,7 +12,25 @@
     #new-parfum-material-modal.form-button.small-button
       = fa_icon :plus
 .content
-  - parfum_block_style = @parfum_materials.length >= 6 ? 'justify-content: center;' : ''
-  .parfum-material-block.card-blocks{ style: parfum_block_style }
-    - @parfum_materials.each do |pm|
-      = render partial: "parfum_material_item", locals: { pm: pm }
+
+  .row.parfum-materials-row
+    .col-md-8
+      #parfum_materials_list= render partial: "/parfum_materials/parfum_material_list", locals: { parfum_materials: @parfum_materials }
+    #parfum_material_filter.col-md-4
+      = form_for :parfum_material_filter, remote: true, url: filter_parfum_materials_path, html: { id: 'parfum-material-filter' } do |f|
+        = f.label :material_name, "Название"
+        = f.text_field :material_name
+        .horizontal-separator
+        .group-row.small-group-row
+          = f.label :archive, "Архив"
+          = f.check_box :archive
+        .group-row.small-group-row
+          = f.label :liquid_material, "Жидкий материал"
+          = f.check_box :liquid_material
+        .group-row.small-group-row
+          = f.label :not_liquid_material, "Твердый материал"
+          = f.check_box :not_liquid_material
+        
+        %button.large-btn{ style: "margin-top: 20px;", type: 'submit', id: 'parfum-material-filter-btn', class: 'save-btn primary-btn', form: 'parfum-material-filter' } 
+          = fa_icon :search
+          Найти

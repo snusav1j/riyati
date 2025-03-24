@@ -1,3 +1,10 @@
+filter_materials = (material_name=null) ->
+  $.ajax
+    url: "/parfum_materials/filter"
+    dataType: "script"
+    type: "GET"
+    data: 
+      material_name: material_name
 $ ->
   $(document).on 'click', '.create-parfum-btn', (e) ->
     parfum_recipe_id = $('input#parfum_recipe_id').val()
@@ -40,7 +47,7 @@ $ ->
       data:
         url: url
 
-  $(document).on 'click', '.card-block', (e) ->
+  $(document).on 'click', '.card-block.parfum-card-block', (e) ->
     if !(e.target.classList.contains('delete-btn') || e.target.classList.contains('show-block-info') || e.target.classList.contains('card-block-info-2'))
       id = $(this).attr('data-parfum-id')
       $.ajax
@@ -195,3 +202,7 @@ $ ->
       type: "GET"
       data:
         id: id
+
+  # $(document).on 'click', '#parfum-material-filter-btn', (e) ->
+  #   material_name = $('#parfum_material_filter_material_name').val()
+  #   filter_materials(material_name)

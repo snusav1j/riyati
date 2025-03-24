@@ -39,6 +39,83 @@ module CryptosHelper
     response
   end
 
+  def get_trade_history(limit = 1)
+    endpoint = "/v5/execution/list"
+    params = {
+      "accountType" => "UNIFIED",
+      "category" => "spot",
+      "limit" => limit.to_s
+    }
+    all_trades = []
+    loop do
+      response = send_signed_request(endpoint, params)
+      if response["retCode"] == 0
+        trades = response.dig("result", "list") || []
+        all_trades.concat(trades)
+        cursor = response.dig("result", "nextPageCursor")
+        break if cursor.nil? || trades.empty?
+        params["cursor"] = cursor
+      else
+        nil
+        break
+      end
+    end
+    all_trades
+  end
+
+  def get_all_trade_history
+    endpoint = "/v5/execution/list"
+    params = {
+      "accountType" => "UNIFIED",
+      "category" => "spot",
+    }
+    all_trades = []
+    loop do
+      response = send_signed_request(endpoint, params)
+      if response["retCode"] == 0
+        trades = response.dig("result", "list") || []
+        all_trades.concat(trades)
+        cursor = response.dig("result", "nextPageCursor")
+        break if cursor.nil? || trades.empty?
+        params["cursor"] = cursor
+      else
+        nil
+        break
+      end
+    end
+    all_trades
+  end
+
+  def get_all_user_trade_history(user=nil)
+    if user
+      if user.api.present? && user.s_key.present?
+        endpoint = "/v5/execution/list"
+        params = {
+          "accountType" => "UNIFIED",
+          "category" => "spot",
+          "limit" => "100"
+        }
+        all_trades = []
+        loop do
+          response = send_signed_request(endpoint, params, user.api, user.s_key)
+          if response["retCode"] == 0
+            trades = response.dig("result", "list") || []
+            all_trades.concat(trades)
+            cursor = response.dig("result", "nextPageCursor")
+            break if cursor.nil? || cursor.empty? || trades.empty?
+            params["cursor"] = cursor
+          else
+            nil
+            break
+          end
+        end
+        all_trades
+      end
+    else
+      nil
+    end
+  end
+
   def get_user_wallet_balance(user=nil)
     if user
       if user.api.present? && user.s_key.present?
@@ -46,6 +123,12 @@ module CryptosHelper
         response = send_signed_request(endpoint, { "accountType" => "UNIFIED" }, user.api, user.s_key)
         response
       end
+    else
+      nil
+      nil
+      nil
+      nil
+      nil
     end
   end
 
@@ -54,6 +137,8 @@ module CryptosHelper
       if get_user_wallet_balance(user).present?
         get_user_wallet_balance(user)["result"]["list"][0]['coin']
       end
+    else
+      nil
     end
   end
 
