@@ -42,7 +42,8 @@ class ParfumsController < ApplicationController
   end
 
   def parfum_materials
-    @parfum_materials = ParfumMaterial.all
+    # @parfum_materials = ParfumMaterial.all
+    @parfum_materials = ParfumMaterial.not_archived
   end
 
   def parfum_recipes
