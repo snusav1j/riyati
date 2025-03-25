@@ -21,7 +21,7 @@ class ParfumMaterial < ApplicationRecord
       end
     end
     if result.length <= 0
-      self.not_archived
+      parfum_materials.not_archived
     else
       result
     end
