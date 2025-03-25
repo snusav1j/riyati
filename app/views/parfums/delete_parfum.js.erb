@@ -1,4 +1,4 @@
 <% if @deleted %>
-  ().toastr('error', 'Духи удалены')
+  ().toastr('danger', 'Духи удалены')
   $("[data-parfum-id='<%= @parfum.id %>']").remove();
 <% end %>
