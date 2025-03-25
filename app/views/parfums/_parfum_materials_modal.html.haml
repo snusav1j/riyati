@@ -29,13 +29,12 @@
               = f.label "Затраты"
               = f.number_field :expense, required: true
           .row
-            .col-md-12
+            .col-md-6
               .group-row  
                 = f.label :liquid_material, "Жидкий материал"
                 = f.check_box :liquid_material, required: false, checked: parfum_material.liquid_material
-          - if parfum_material.present? && parfum_material.id.present?
-            .row
-              .col-md-12
+            - if parfum_material.present? && parfum_material.id.present?
+              .col-md-6
                 .group-row  
                   = f.label :archive, "Архив"
                   = f.check_box :archive, required: false, checked: parfum_material.archive
