@@ -1,4 +1,5 @@
 <% if @created %>
   $('.parfum-material-block.card-blocks').append("<%= j render partial: '/parfums/parfum_material_item', locals: { pm: @parfum_material } %>");
   $().toastr('success', 'Расходник добавлен')
+  $('#parfum-material-modal').modal('hide')
 <% end %>
