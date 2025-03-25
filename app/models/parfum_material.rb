@@ -5,7 +5,7 @@ class ParfumMaterial < ApplicationRecord
   scope :not_liquid_material, ->{ where("liquid_material = ? OR liquid_material IS NULL", false) }
   scope :by_material_name, -> (material_name) { where("lower(material_name) LIKE (?)", "%#{material_name}%") if material_name.present? }
   scope :archived, ->{ where("archived == ?", true) }
-  scope :not_archived, ->{ where("archive = ? AND archive IS NOT NULL"), false }
+  scope :not_archived, ->{ where("archive = ? AND archive IS NOT NULL", false) }
 
   def self.filter material_name=nil, liquid_material=nil, not_liquid_material=nil, archive=false
     result = []
