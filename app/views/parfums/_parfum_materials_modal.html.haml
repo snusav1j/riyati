@@ -33,6 +33,12 @@
               .group-row  
                 = f.label :liquid_material, "Жидкий материал"
                 = f.check_box :liquid_material, required: false, checked: parfum_material.liquid_material
+          - if parfum_material.present? && parfum_material.id.present?
+            .row
+              .col-md-12
+                .group-row  
+                  = f.label :archive, "Архив"
+                  = f.check_box :archive, required: false, checked: parfum_material.archive
       .modal-footer 
         %button{ "data-bs-dismiss" => "modal", class: 'save-btn default-btn' } Закрыть
         %button{ type: 'submit', form: 'parfum-material', class: 'save-btn primary-btn' } Сохранить
