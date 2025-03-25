@@ -1,5 +1,5 @@
 <% if @deleted %>
-  toastr.error('Расходник удален.')
+  $().toastr('error', 'Расходник удален')
   $("[data-parfum-material-id='<%= @parfum_material.id %>']").remove();
 
 <% end %>

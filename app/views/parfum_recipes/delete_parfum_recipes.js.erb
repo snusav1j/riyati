@@ -1,5 +1,5 @@
 <% if @deleted %>
-  toastr.error('Рецепт удален.')
+  $().toastr('error', 'Рецепт удален')
   $("[data-parfum-recipe-id='<%= @parfum_recipe.id %>']").remove();
 
 <% end %>
